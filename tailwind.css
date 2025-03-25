@@ -1,0 +1,145 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --accentred-500: rgba(240, 68, 56, 1);
+  --background-color: rgba(250, 251, 251, 1);
+  --background-gray: rgba(237, 237, 237, 1);
+  --foundation-greygrey-100: rgba(187, 187, 187, 1);
+  --foundation-greygrey-400: rgba(80, 80, 80, 1);
+  --foundation-greygrey-500: rgba(36, 36, 36, 1);
+  --foundation-primary-blueprimary-blue-500: rgba(0, 118, 188, 1);
+  --foundation-successsuccess-50: rgba(231, 246, 230, 1);
+  --foundation-successsuccess-500: rgba(11, 167, 0, 1);
+  --foundationgreygrey-100: rgba(187, 187, 187, 1);
+  --foundationgreygrey-300: rgba(108, 108, 108, 1);
+  --foundationprimay-blueblue-100: rgba(176, 213, 234, 1);
+  --foundationprimay-blueblue-500: rgba(0, 118, 188, 1);
+  --foundationprimay-blueblue-700: rgba(0, 84, 133, 1);
+  --gray-100: rgba(227, 227, 227, 1);
+  --gray-50: rgba(246, 246, 246, 1);
+  --hostbooksbackground: rgba(250, 251, 251, 1);
+  --lightgoten: rgba(255, 255, 255, 1);
+  --mulish-12-sp-medium-font-family: "Mulish", Helvetica;
+  --mulish-12-sp-medium-font-size: 12px;
+  --mulish-12-sp-medium-font-style: normal;
+  --mulish-12-sp-medium-font-weight: 500;
+  --mulish-12-sp-medium-letter-spacing: 0px;
+  --mulish-12-sp-medium-line-height: 140%;
+  --mulish-12-sp-regular-font-family: "Mulish", Helvetica;
+  --mulish-12-sp-regular-font-size: 12px;
+  --mulish-12-sp-regular-font-style: normal;
+  --mulish-12-sp-regular-font-weight: 400;
+  --mulish-12-sp-regular-letter-spacing: 0px;
+  --mulish-12-sp-regular-line-height: 140%;
+  --mulish-14-sp-medium-font-family: "Mulish", Helvetica;
+  --mulish-14-sp-medium-font-size: 14px;
+  --mulish-14-sp-medium-font-style: normal;
+  --mulish-14-sp-medium-font-weight: 500;
+  --mulish-14-sp-medium-letter-spacing: 0px;
+  --mulish-14-sp-medium-line-height: 120.00000762939453%;
+  --mulish-14-sp-regular-font-family: "Mulish", Helvetica;
+  --mulish-14-sp-regular-font-size: 14px;
+  --mulish-14-sp-regular-font-style: normal;
+  --mulish-14-sp-regular-font-weight: 400;
+  --mulish-14-sp-regular-letter-spacing: 0px;
+  --mulish-14-sp-regular-line-height: 150%;
+  --mulish-18-sp-medium-font-family: "Mulish", Helvetica;
+  --mulish-18-sp-medium-font-size: 18px;
+  --mulish-18-sp-medium-font-style: normal;
+  --mulish-18-sp-medium-font-weight: 500;
+  --mulish-18-sp-medium-letter-spacing: 0px;
+  --mulish-18-sp-medium-line-height: 100%;
+  --pure-white: rgba(255, 255, 255, 1);
+  --small-card-shadow1: 0px 1px 6px 0px rgba(0, 0, 0, 0.06);
+  --web-large-cards: 0px 0px 32px 0px rgba(25, 40, 49, 0.04);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: transparent;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: transparent;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
