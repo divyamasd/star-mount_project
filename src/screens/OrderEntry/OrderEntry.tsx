@@ -4,7 +4,7 @@ import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group";
 import { Separator } from "../../components/ui/separator";
 import { ActionButtonsSection } from "./sections/ActionButtonsSection";
 import { ExportOptionsSection } from "./sections/ExportOptionsSection";
-import { HeaderSection } from "./sections/HeaderSection/HeaderSection";
+import { HeaderSection } from "../../components/HeaderSection/HeaderSection";
 import { ImportSection } from "./sections/ImportSection";
 import { OrderDetailsSection } from "./sections/OrderDetailsSection";
 import { OrderEntrySection } from "./sections/OrderEntrySection";
