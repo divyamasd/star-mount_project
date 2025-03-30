@@ -1,0 +1,1 @@
+export { PackingDetails } from "./PackingDetails";
