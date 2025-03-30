@@ -27,21 +27,21 @@ const App = () => (
       <Route path="/packing-details" element={<PackingDetails />} />
       <Route path="/production-plan-details" element={<ProductionPlan />} />
       <Route path="/order-authentication" element={<OrderAuthentication />} />
-      <Route path="/fabric-lather-management" element={<OrderAuthentication />} />
-      <Route path="/row-fabric-leather" element={<OrderAuthentication />} />
-      <Route path="/receiving-inspection" element={<OrderAuthentication />} />
-      <Route path="/inspection-and-receiving" element={<OrderAuthentication />} />
-      <Route path="/order-process-control" element={<OrderAuthentication />} />
-      <Route path="/other-process-control" element={<OrderAuthentication />} />
+      <Route path="/fabric-lather-management" element={<PackingDetails />} />
+      <Route path="/row-fabric-leather" element={<PackingDetails />} />
+      <Route path="/receiving-inspection" element={<PackingDetails />} />
+      <Route path="/inspection-and-receiving" element={<PackingDetails/>} />
+      <Route path="/order-process-control" element={<ProductionPlan />} />
+      <Route path="/other-process-control" element={<OrderComponent />} />
       <Route path="/production-issue" element={<OrderAuthentication />} />
-      <Route path="/production-received" element={<OrderAuthentication />} />
-      <Route path="/leather-cutting-process" element={<OrderAuthentication />} />
-      <Route path="/challan-detail" element={<OrderAuthentication />} />
-      <Route path="/purchase-order-detail" element={<OrderAuthentication />} />
-      <Route path="/other-production-order" element={<OrderAuthentication />} />
-      <Route path="/challan-cancellation" element={<OrderAuthentication />} />
-      <Route path="/master-details" element={<OrderAuthentication />} />
-      <Route path="/fabric-details" element={<OrderAuthentication />} />
+      <Route path="/production-received" element={<PackingDetails />} />
+      <Route path="/leather-cutting-process" element={<PackingDetails />} />
+      <Route path="/challan-detail" element={<PackingDetails />} />
+      <Route path="/purchase-order-detail" element={<PackingDetails />} />
+      <Route path="/other-production-order" element={<PackingDetails />} />
+      <Route path="/challan-cancellation" element={<PackingDetails />} />
+      <Route path="/master-details" element={<PackingDetails />} />
+      <Route path="/fabric-details" element={<PackingDetails />} />
 
     </Routes>
   </Router>
