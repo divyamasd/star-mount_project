@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { OrderEntry } from "./screens/OrderEntry";
 import { OrderQuantity } from "./screens/OrderQuantity";
+import { OrderFinalFabric } from "./screens/OrderFinalFabric";
 
 const App = () => (
   <Router>
@@ -10,7 +11,7 @@ const App = () => (
       <Route path="/" element={<OrderEntry />} />
       <Route path="/order-entry" element={<OrderEntry />} />
       <Route path="/order-quantity" element={<OrderQuantity />} />
-      <Route path="/order-final-fabric-detail" element={<OrderEntry />} />
+      <Route path="/order-final-fabric-detail" element={<OrderFinalFabric />} />
       <Route path="/order-exchange" element={<OrderEntry />} />
       <Route path="/order-component" element={<OrderEntry />} />
       <Route path="/fabric-planning" element={<OrderEntry />} />
