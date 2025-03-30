@@ -10,6 +10,7 @@ import { FabricPlanning } from "./screens/FabricPlanning/FabricPlanning";
 import { FabricAverage } from "./screens/FabricAverage/FabricAverage";
 import { PackingDetails } from "./screens/PackingDetails";
 import { ProductionPlan } from "./screens/ProductionPlan/ProductionPlan";
+import { OrderAuthentication } from "./screens/OrderAuthentication/OrderAuthentication";
 
 const App = () => (
   <Router>
@@ -25,6 +26,23 @@ const App = () => (
       <Route path="/accessory-details" element={<PackingDetails />} />
       <Route path="/packing-details" element={<PackingDetails />} />
       <Route path="/production-plan-details" element={<ProductionPlan />} />
+      <Route path="/order-authentication" element={<OrderAuthentication />} />
+      <Route path="/fabric-lather-management" element={<OrderAuthentication />} />
+      <Route path="/row-fabric-leather" element={<OrderAuthentication />} />
+      <Route path="/receiving-inspection" element={<OrderAuthentication />} />
+      <Route path="/inspection-and-receiving" element={<OrderAuthentication />} />
+      <Route path="/order-process-control" element={<OrderAuthentication />} />
+      <Route path="/other-process-control" element={<OrderAuthentication />} />
+      <Route path="/production-issue" element={<OrderAuthentication />} />
+      <Route path="/production-received" element={<OrderAuthentication />} />
+      <Route path="/leather-cutting-process" element={<OrderAuthentication />} />
+      <Route path="/challan-detail" element={<OrderAuthentication />} />
+      <Route path="/purchase-order-detail" element={<OrderAuthentication />} />
+      <Route path="/other-production-order" element={<OrderAuthentication />} />
+      <Route path="/challan-cancellation" element={<OrderAuthentication />} />
+      <Route path="/master-details" element={<OrderAuthentication />} />
+      <Route path="/fabric-details" element={<OrderAuthentication />} />
+
     </Routes>
   </Router>
 );
