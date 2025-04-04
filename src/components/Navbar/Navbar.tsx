@@ -1,8 +1,6 @@
 import {
     BellIcon,
     ChevronDownIcon,
-    ScissorsIcon,
-    TruckIcon,
   } from "lucide-react";
   import React from "react";
   import { Link, useLocation } from "react-router-dom";
@@ -18,18 +16,20 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
   } from "../ui/dropdown-menu";
+ import companyLogo from "../../../public/company_logo.png"
+
   
   // Navigation menu items data
   const navigationItems = [
     {
-      icon: "https://c.animaapp.com/m8o62etcI5Wrge/img/element-plus.svg",
+      icon: "../../../public/orderManagement.svg",
       label: "Order\nManagement",
       path: "/",
     },
     {
-      icon: "https://c.animaapp.com/m8o62etcI5Wrge/img/box-search.svg",
-      subIcon: "https://c.animaapp.com/m8o62etcI5Wrge/img/group-1039.png",
-      label: "Order\nList",
+      icon: "../../../public/orderControl.svg",
+      subIcon: "../../../public/orderManagement2.png",
+      label: "Order\nControl",
       dropdown: true,
       options: [
         { label: "Order Entry", path: "/order-entry" },
@@ -45,7 +45,7 @@ import {
       ],
     },
     {
-      icon: "https://c.animaapp.com/m8o62etcI5Wrge/img/group-1.png",
+      icon: "../../../public/verification.png",
       label: "Verification",
       dropdown: true,
       options: [
@@ -53,7 +53,7 @@ import {
       ],
     },
     {
-      icon: "https://c.animaapp.com/m8o62etcI5Wrge/img/01-align-center.png",
+      icon: "../../../public/procurement.png",
       label: "Procurement\nModule",
       dropdown: true,
       options: [
@@ -64,7 +64,7 @@ import {
       ],
     },
     {
-      iconComponent: <ScissorsIcon className="w-[25px] h-[25px]" />,
+      icon: "../../../public/cutting.svg",
       label: "Cutting\nControl",
       dropdown: true,
       options: [
@@ -72,7 +72,7 @@ import {
       ],
     },
     {
-      iconComponent: <TruckIcon className="w-[25px] h-[25px]" />,
+      icon: "../../../public/productionControl.svg" ,
       label: "Production\nControl",
       dropdown: true,
       options: [
@@ -83,12 +83,36 @@ import {
       ],
     },
     {
-      icon: "https://c.animaapp.com/m8o62etcI5Wrge/img/setting-2-bulk.svg",
-      additionalIcons: [
-        "https://c.animaapp.com/m8o62etcI5Wrge/img/vector-1.svg",
-        "https://c.animaapp.com/m8o62etcI5Wrge/img/vector.svg",
-        "https://c.animaapp.com/m8o62etcI5Wrge/img/receipt-text.svg",
-      ],
+      customIcon: (
+        <div className="relative w-[28.75px] h-[30px] mt-[-2.50px] mb-[-2.50px] ml-[-1.88px] mr-[-1.88px]">
+          <div className="relative w-[25px] h-[27px] -top-px left-[3px] rotate-[-0.12deg]">
+            <div className="relative w-[26px] h-7 -left-px">
+              <img
+                className="absolute w-[11px] h-[11px] top-0 left-[15px] rotate-[0.12deg]"
+                alt="Setting bulk"
+                src="../../../public/challanSettingBulk.svg" 
+              />
+              <img
+                className="absolute w-[13px] h-[22px] top-1 left-0 rotate-[0.12deg]"
+                alt="Vector"
+                src="../../../public/challanVector1.svg" 
+              />
+              <img
+                className="absolute w-[13px] h-[13px] top-[15px] left-[11px] rotate-[0.12deg]"
+                alt="Vector"
+                src="../../../public/challanVector2.svg" 
+              />
+              <div className="absolute w-[13px] h-[13px] top-[9px] left-1.5">
+                <img
+                  className="absolute w-[13px] h-[13px] top-0 left-0 rotate-[0.12deg]"
+                  alt="Receipt text"
+                  src="../../../public/challanReceipt.svg" 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
       label: "Challan\nDetail",
       dropdown: true,
       options: [
@@ -102,7 +126,7 @@ import {
     },
   ];
   
-  export const HeaderSection = (): JSX.Element => {
+  export const Navbar = (): JSX.Element => {
     const location = useLocation();
   
     return (
@@ -114,7 +138,7 @@ import {
               <img
                 className="absolute w-[26px] h-[23px] top-0 left-[25px]"
                 alt="Group"
-                src="https://c.animaapp.com/m8o62etcI5Wrge/img/group.png"
+                src={companyLogo}
               />
               <div className="absolute w-[79px] h-[17px] top-[21px] left-0">
                 <div className="relative w-[77px] h-[17px]">
@@ -133,22 +157,24 @@ import {
               item.dropdown ? (
                 <DropdownMenu key={index}>
                   <DropdownMenuTrigger asChild>
-                    <div className={`flex items-center gap-[6.25px] cursor-pointer ${
-                      location.pathname.startsWith('/order') ? "opacity-100" : "opacity-50"
-                    }`}>
+                    <div className={`flex items-center gap-[6.25px] cursor-pointer `}>
                       <div className="flex items-center justify-center w-10 h-10 bg-[#f2fffb] rounded-[11.25px] p-[7.5px]">
-                        <div className="relative w-[25px] h-[25px]">
+                        {item.customIcon ? (item.customIcon): (
+                          <div className="relative w-[25px] h-[25px]">
                           <img
                             className="w-full h-full"
                             alt={`Menu icon ${index}`}
                             src={item.icon}
                           />
-                          <img
-                            className="absolute w-[9px] h-2 top-[15px] left-4"
-                            alt="Sub icon"
-                            src={item.subIcon}
-                          />
+                          {item.subIcon && (
+                            <img
+                              className="absolute w-[9px] h-2 top-[15px] left-4"
+                              alt="Sub icon"
+                              src={item.subIcon}
+                            />
+                          )}
                         </div>
+                        )}
                       </div>
                       <div className="font-medium text-[#f2fffb] text-[12.5px] leading-[12.5px] [font-family:'Mulish',Helvetica] whitespace-pre-line">
                         {item.label}
@@ -169,14 +195,9 @@ import {
                 <Link
                   key={index}
                   to={item.path}
-                  className={`flex items-center gap-[6.25px] ${
-                    location.pathname === item.path ? "opacity-100" : "opacity-50"
-                  }`}
+                  className={`flex items-center gap-[6.25px]`}
                 >
                   <div className="flex items-center justify-center w-10 h-10 bg-[#f2fffb] rounded-[11.25px] p-[7.5px]">
-                    {item.iconComponent ? (
-                      item.iconComponent
-                    ) : (
                       <div className="relative w-[25px] h-[25px]">
                         {item.icon && (
                           <img
@@ -185,29 +206,7 @@ import {
                             src={item.icon}
                           />
                         )}
-                        {item.additionalIcons && (
-                          <>
-                            <img
-                              className="absolute w-[13px] h-[22px] top-1 left-0"
-                              alt="Vector"
-                              src={item.additionalIcons[0]}
-                            />
-                            <img
-                              className="absolute w-[13px] h-[13px] top-[15px] left-[11px]"
-                              alt="Vector"
-                              src={item.additionalIcons[1]}
-                            />
-                            <div className="absolute w-[13px] h-[13px] top-[9px] left-1.5">
-                              <img
-                                className="absolute w-[13px] h-[13px] top-0 left-0"
-                                alt="Receipt text"
-                                src={item.additionalIcons[2]}
-                              />
-                            </div>
-                          </>
-                        )}
                       </div>
-                    )}
                   </div>
                   <div className="font-medium text-[#f2fffb] text-[12.5px] leading-[12.5px] [font-family:'Mulish',Helvetica] whitespace-pre-line">
                     {item.label}
@@ -245,10 +244,21 @@ import {
               </div>
             </div>
   
-            <ChevronDownIcon className="w-4 h-4 text-white" />
+            <DropdownMenu>
+              <DropdownMenuTrigger >
+                <ChevronDownIcon className="w-4 h-4 text-white" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                  <DropdownMenuItem >
+                    {"Logout"}
+                  </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
       </header>
     );
   };
+  
+
   

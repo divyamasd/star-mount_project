@@ -3,10 +3,11 @@ import React from "react";
 import { Button } from "../../components/ui/button";
 import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group";
 import { Separator } from "../../components/ui/separator";
-import { DataTableSection } from "./sections/DataTableSection";
+import { Navbar } from "../../components/Navbar/Navbar";
 import { FilterSection } from "./sections/FilterSection/FilterSection";
 import { PaginationSection } from "./sections/PaginationSection/PaginationSection";
 import { SummarySection } from "./sections/SummarySection/SummarySection";
+
 
 export const FabricAverage = (): JSX.Element => {
   // Data for radio options
@@ -35,7 +36,7 @@ export const FabricAverage = (): JSX.Element => {
   return (
     <div className="bg-[#fafbfb] flex flex-col justify-center w-full">
       {/* Navbar */}
-      <DataTableSection />
+      <Navbar />
 
       <div className="w-full max-w-[1440px] mx-auto">
         {/* Title and Action Buttons */}

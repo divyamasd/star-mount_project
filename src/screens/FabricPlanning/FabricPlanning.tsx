@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "../../components/ui/button";
 import { Separator } from "../../components/ui/separator";
 import { ActionButtonsSection } from "./sections/ActionButtonsSection/ActionButtonsSection";
-import { FiltersSection } from "./sections/FiltersSection";
+import { Navbar } from "../../components/Navbar/Navbar";
 import { HeaderSection } from "./sections/HeaderSection/HeaderSection";
 import { ItemListSection } from "./sections/ItemListSection/ItemListSection";
 import { SummarySection } from "./sections/SummarySection/SummarySection";
@@ -20,7 +20,7 @@ export const FabricPlanning = (): JSX.Element => {
       <div className="bg-background-color w-full max-w-[1440px] relative flex flex-col">
         {/* Filters Section */}
         <div className="w-full">
-          <FiltersSection />
+          <Navbar />
           <img
             className="w-[1362px] mx-auto h-px object-cover"
             alt="Line"

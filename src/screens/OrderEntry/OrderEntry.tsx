@@ -3,21 +3,21 @@ import { Button } from "../../components/ui/button";
 import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group";
 import { Separator } from "../../components/ui/separator";
 import { ActionButtonsSection } from "./sections/ActionButtonsSection";
-import { ExportOptionsSection } from "./sections/ExportOptionsSection";
-import { HeaderSection } from "../../components/HeaderSection/HeaderSection";
+import { Navbar } from "../../components/Navbar/Navbar";
 import { ImportSection } from "./sections/ImportSection";
 import { OrderDetailsSection } from "./sections/OrderDetailsSection";
 import { OrderEntrySection } from "./sections/OrderEntrySection";
 import { StyleDetailsSection } from "./sections/StyleDetailsSection";
+import { Checkbox } from "../../components/ui/checkbox";
 
 export const OrderEntry = (): JSX.Element => {
   return (
     <div className="bg-[#fafbfb] flex flex-row justify-center w-full">
-      <div className="bg-background-color w-full max-w-[1440px] relative">
+      <div className="bg-background-color w-full relative">
         {/* Header Section */}
         <div className="w-full">
-          <HeaderSection />
-          <Separator className="mx-10 mt-[69px]" />
+          <Navbar />
+          
         </div>
 
         {/* Title and Toggle Buttons */}
@@ -40,10 +40,7 @@ export const OrderEntry = (): JSX.Element => {
         {/* Order Entry and Export Options Sections */}
         <div className="px-10 mt-6">
           <div className="flex rounded-2xl">
-            <div className="w-1/3">
-              <ExportOptionsSection />
-            </div>
-            <div className="w-2/3">
+            <div className="w-full">
               <OrderEntrySection />
             </div>
           </div>
@@ -59,18 +56,10 @@ export const OrderEntry = (): JSX.Element => {
 
         <Separator className="mx-9 mt-6" />
 
-        {/* Radio Options */}
         <div className="px-10 mt-6">
-          <RadioGroup
-            defaultValue="domestic"
-            className="flex items-center gap-[53px]"
-          >
+          <div className="flex items-center gap-[53px]">
             <div className="flex items-center gap-1.5">
-              <RadioGroupItem
-                value="domestic"
-                id="domestic"
-                className="w-6 h-6 border-black"
-              />
+              <Checkbox id="domestic" className="w-4 h-4 border-blue" />
               <label
                 htmlFor="domestic"
                 className="font-mulish font-medium text-foundationgreygrey-300 text-base"
@@ -80,11 +69,7 @@ export const OrderEntry = (): JSX.Element => {
             </div>
 
             <div className="flex items-center gap-1.5">
-              <RadioGroupItem
-                value="export"
-                id="export"
-                className="w-6 h-6 border-black"
-              />
+              <Checkbox id="export" className="w-4 h-4 border-blue" />
               <label
                 htmlFor="export"
                 className="font-mulish font-medium text-foundationgreygrey-300 text-base"
@@ -94,11 +79,7 @@ export const OrderEntry = (): JSX.Element => {
             </div>
 
             <div className="flex items-center gap-1.5">
-              <RadioGroupItem
-                value="both"
-                id="both"
-                className="w-6 h-6 border-black"
-              />
+              <Checkbox id="both" className="w-4 h-4 border-buek" />
               <label
                 htmlFor="both"
                 className="font-mulish font-medium text-foundationgreygrey-300 text-base"
@@ -106,9 +87,8 @@ export const OrderEntry = (): JSX.Element => {
                 Both
               </label>
             </div>
-          </RadioGroup>
+          </div>
         </div>
-
         {/* Import Section */}
         <div className="px-10 mt-6">
           <ImportSection />
@@ -142,11 +122,6 @@ export const OrderEntry = (): JSX.Element => {
           <Button className="w-[138px] bg-[#2c97cd] font-mulish font-semibold text-white text-sm rounded-lg">
             Save
           </Button>
-        </div>
-
-        {/* Action Buttons Section */}
-        <div className="px-10 mt-6">
-          <ActionButtonsSection />
         </div>
       </div>
     </div>

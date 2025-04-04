@@ -4,7 +4,7 @@ import { Separator } from "../../components/ui/separator";
 import { ActionButtonsSection } from "./sections/ActionButtonsSection/ActionButtonsSection";
 import { DataTableSection } from "./sections/DataTableSection/DataTableSection";
 import { HeaderSection } from "./sections/HeaderSection/HeaderSection";
-import { ListingSection } from "./sections/ListingSection";
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export const OrderExchange = (): JSX.Element => {
   // Pagination data
@@ -21,7 +21,7 @@ export const OrderExchange = (): JSX.Element => {
       <div className="bg-background-color w-full max-w-[1440px] relative flex flex-col">
         {/* Top section with ListingSection */}
         <div className="w-full">
-          <ListingSection />
+          <Navbar />
           <Separator className="mx-10" />
         </div>
 

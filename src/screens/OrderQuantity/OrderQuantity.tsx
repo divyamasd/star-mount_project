@@ -19,8 +19,8 @@ import { DefaultColorSizeSection } from "./sections/DefaultColorSizeSection";
 import { ListingSection } from "./sections/ListingSection/ListingSection";
 import { OrderQuantitySection } from "./sections/OrderQuantitySection/OrderQuantitySection";
 import { QuantityEntrySection } from "./sections/QuantityEntrySection";
-import { RowClearButtonSection } from "./sections/RowClearButtonSection";
 import { TotalQuantitySection } from "./sections/TotalQuantitySection/TotalQuantitySection";
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export const OrderQuantity = (): JSX.Element => {
   // Pagination data
@@ -38,7 +38,7 @@ export const OrderQuantity = (): JSX.Element => {
       <div className="bg-background-color w-full max-w-[1440px] relative flex flex-col">
         {/* Top section with row clear button */}
         <div className="w-full">
-          <RowClearButtonSection />
+          <Navbar />
           <Separator className="mx-10 my-0" />
         </div>
 

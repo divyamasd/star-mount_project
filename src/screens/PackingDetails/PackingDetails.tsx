@@ -4,12 +4,13 @@ import { Separator } from "../../components/ui/separator";
 import { HeaderSection } from "./sections/HeaderSection/HeaderSection";
 import { PackingDetailsSection } from "./sections/PackingDetailsSection/PackingDetailsSection";
 import { PaginationSection } from "./sections/PaginationSection/PaginationSection";
-import { TableWrapperSection } from "./sections/TableWrapperSection/TableWrapperSection";
+
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export const PackingDetails = (): JSX.Element => {
   return (
     <div className="bg-background-color flex flex-col justify-center w-full">
-      <TableWrapperSection />
+      <Navbar />
       <div className="w-full max-w-[1440px] relative flex flex-col mx-auto">
         {/* Header with title and buttons */}
         <div className="flex justify-between items-center p-10 pb-6">

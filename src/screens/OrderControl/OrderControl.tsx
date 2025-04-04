@@ -8,7 +8,7 @@ import { ExportSection } from "./sections/ExportSection";
 import { ImportSection } from "./sections/ImportSection/ImportSection";
 import { OrderDetailsSection } from "./sections/OrderDetailsSection";
 import { OrderEntrySection } from "./sections/OrderEntrySection/OrderEntrySection";
-import { StyleDetailsSection } from "./sections/StyleDetailsSection/StyleDetailsSection";
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export const OrderControl = (): JSX.Element => {
   // Navigation menu items
@@ -27,7 +27,7 @@ export const OrderControl = (): JSX.Element => {
 
   return (
     <div className="bg-[#fafbfb] flex flex-col min-h-screen">
-      <StyleDetailsSection />
+      <Navbar />
       
       <div className="flex flex-1">
         {/* Navigation Menu */}
