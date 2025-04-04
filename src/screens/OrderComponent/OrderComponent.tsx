@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../../components/ui/button";
 import { Separator } from "../../components/ui/separator";
-import { ActionButtonsSection } from "./sections/ActionButtonsSection";
+import { Navbar } from "../../components/Navbar/Navbar";
 import { DataTableSection } from "./sections/DataTableSection/DataTableSection";
 import { HeaderSection } from "./sections/HeaderSection";
 
@@ -18,7 +18,7 @@ export const OrderComponent = (): JSX.Element => {
       <div className="bg-background-color w-full max-w-[1440px] relative flex flex-col">
         {/* Action Buttons Section at the top */}
         <div className="w-full">
-          <ActionButtonsSection />
+          <Navbar />
           <Separator className="mx-10 my-0" />
         </div>
 

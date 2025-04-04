@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "../../components/ui/dropdown-menu";
 import { Separator } from "../../components/ui/separator";
-import { HeaderSection } from "../OrderEntry/sections/HeaderSection/HeaderSection";
+import { Navbar } from "../../components/Navbar/Navbar";
 
 const orderControlOptions = [
   { label: "Order Entry", path: "/order-entry" },
@@ -32,7 +32,7 @@ export const OrderList = (): JSX.Element => {
       <div className="bg-background-color w-full max-w-[1440px] relative">
         {/* Header Section */}
         <div className="w-full">
-          <HeaderSection />
+          <Navbar />
           <Separator className="mx-10 mt-[69px]" />
         </div>
 

@@ -15,7 +15,7 @@ import { ActionButtonsSection } from "./sections/ActionButtonsSection/ActionButt
 import { CreateSelectFinalFabricSection } from "./sections/CreateSelectFinalFabricSection";
 import { FabricDetailsSection } from "./sections/FabricDetailsSection/FabricDetailsSection";
 import { FinalFabricPlanningSection } from "./sections/FinalFabricPlanningSection/FinalFabricPlanningSection";
-import { ListingSection } from "./sections/ListingSection";
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export const OrderFinalFabric = (): JSX.Element => {
   const [planningOptions, setPlanningOptions] = useState([
@@ -61,7 +61,7 @@ export const OrderFinalFabric = (): JSX.Element => {
       <div className="bg-background-color w-full max-w-[1440px] relative">
         {/* Header and Listing Section */}
         <div className="w-full">
-          <ListingSection />
+          <Navbar />
           <Separator className="mx-10 my-2" />
         </div>
 

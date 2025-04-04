@@ -4,7 +4,7 @@ import { Button } from "../../components/ui/button";
 import { Separator } from "../../components/ui/separator";
 import { FilterSection } from "./sections/FilterSection";
 import { HeaderSection } from "./sections/HeaderSection";
-import { MainContentSection } from "./sections/MainContentSection";
+import { Navbar } from "../../components/Navbar/Navbar";
 import { OrderTableSection } from "./sections/OrderTableSection/OrderTableSection";
 import { PaginationSection } from "./sections/PaginationSection/PaginationSection";
 
@@ -30,7 +30,7 @@ export const OrderAuthentication = (): JSX.Element => {
     <div className="bg-[#fafbfb] flex flex-row justify-center w-full">
       <div className="bg-background-color w-full max-w-[1440px] relative">
         {/* Main Content Section */}
-        <MainContentSection />
+        <Navbar />
 
        
 
