@@ -1,8 +1,6 @@
 import React from "react";
 import { Button } from "../../components/ui/button";
-import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group";
 import { Separator } from "../../components/ui/separator";
-import { ActionButtonsSection } from "./sections/ActionButtonsSection";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { ImportSection } from "./sections/ImportSection";
 import { OrderDetailsSection } from "./sections/OrderDetailsSection";
@@ -17,7 +15,6 @@ export const OrderEntry = (): JSX.Element => {
         {/* Header Section */}
         <div className="w-full">
           <Navbar />
-          
         </div>
 
         {/* Title and Toggle Buttons */}
@@ -28,10 +25,11 @@ export const OrderEntry = (): JSX.Element => {
             <Button
               variant="outline"
               className="px-4 py-3 font-mulish font-semibold text-sm text-[#2c97cd] border-[#2c98cd] rounded-lg"
+              onClick={() => alert("Export clicked")}
             >
               Export
             </Button>
-            <Button className="px-4 py-3 font-mulish font-semibold text-sm bg-[#2c97cd] text-white rounded-lg">
+            <Button className="px-4 py-3 font-mulish font-semibold text-sm bg-[#2c97cd] text-white rounded-lg" onClick={() => alert("Domestics clicked")}>
               Domestics
             </Button>
           </div>
@@ -93,7 +91,7 @@ export const OrderEntry = (): JSX.Element => {
         <div className="px-10 mt-6">
           <ImportSection />
           <div className="flex justify-center mt-4">
-            <Button className="w-[138px] bg-[#2c97cd] font-mulish font-semibold text-white text-sm rounded-lg">
+            <Button className="w-[138px] bg-[#2c97cd] font-mulish font-semibold text-white text-sm rounded-lg" onClick={() => alert("clicked")}>
               Import
             </Button>
           </div>
@@ -113,13 +111,13 @@ export const OrderEntry = (): JSX.Element => {
 
         {/* Action Buttons */}
         <div className="flex justify-center items-center gap-[25px] my-6">
-          <Button className="w-[138px] bg-[#20c86c] font-mulish font-semibold text-white text-sm rounded-lg">
+          <Button className="w-[138px] bg-[#20c86c] font-mulish font-semibold text-white text-sm rounded-lg" onClick={() => alert("clicked")}>
             Apply
           </Button>
-          <Button className="w-[138px] bg-[#faa720] font-mulish font-semibold text-white text-sm rounded-lg">
+          <Button className="w-[138px] bg-[#faa720] font-mulish font-semibold text-white text-sm rounded-lg" onClick={() => alert("clicked")}>
             Row Clear
           </Button>
-          <Button className="w-[138px] bg-[#2c97cd] font-mulish font-semibold text-white text-sm rounded-lg">
+          <Button className="w-[138px] bg-[#2c97cd] font-mulish font-semibold text-white text-sm rounded-lg" onClick={() => alert("clicked")}>
             Save
           </Button>
         </div>

@@ -23,8 +23,8 @@ export const QuantityEntrySection = (): JSX.Element => {
   ];
 
   return (
-    <div className="flex items-center gap-2.5 py-2.5 bg-[#e3f9ff]">
-      <div className="flex flex-col w-full max-w-[284px]">
+    <div className="flex items-center gap-2.5 bg-[#e3f9ff]">
+      <div className="flex flex-col w-full">
         <Table>
           <TableHeader>
             <TableRow className="bg-[#2c97cd]">
