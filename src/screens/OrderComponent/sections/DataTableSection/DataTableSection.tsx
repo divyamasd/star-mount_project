@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Table,
   TableBody,
@@ -21,9 +21,9 @@ export const DataTableSection = (): JSX.Element => {
     { id: 8, name: "Component H" },
     { id: 9, name: "Component I" },
   ];
-
+  const [tableComponents, setTableComponents] = useState(components);
   return (
-    <div className="w-full py-2.5 bg-[#e3f9ff]">
+    <div className="px-10 py-6 ">
       <Table>
         <TableHeader>
           <TableRow className="bg-[#2c97cd]">
@@ -36,7 +36,7 @@ export const DataTableSection = (): JSX.Element => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {components.map((component, index) => (
+          {tableComponents.map((component, index) => (
             <TableRow
               key={component.id}
               className={index % 2 === 1 ? "bg-[#f7feff]" : ""}

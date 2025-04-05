@@ -15,22 +15,23 @@ export const OrderComponent = (): JSX.Element => {
 
   return (
     <div className="bg-[#fafbfb] flex flex-row justify-center w-full">
-      <div className="bg-background-color w-full max-w-[1440px] relative flex flex-col">
+      <div className="bg-background-color w-full relative">
         {/* Action Buttons Section at the top */}
         <div className="w-full">
           <Navbar />
-          <Separator className="mx-10 my-0" />
         </div>
-
-        {/* Order Component Heading */}
-        <h1 className="text-2xl font-bold text-[#2c97cd] px-10 py-4">Order Component</h1>
-
+         <div className="flex justify-between items-center px-10 mt-6">
+           <h1 className="font-mulish font-semibold text-2xl">Order Component</h1>
+         </div>
+        
         {/* Header Section */}
         <HeaderSection />
-        <Separator className="mx-9" />
+        <Separator className="mx-9 mt-6" />
 
         {/* Data Table Section */}
         <DataTableSection />
+
+        <Separator className="mx-9 mt-6" />
 
         {/* Bottom Action Buttons */}
         <div className="flex justify-center items-center gap-[25px] py-6">
@@ -38,6 +39,7 @@ export const OrderComponent = (): JSX.Element => {
             <Button
               key={index}
               className={`w-[138px] h-10 rounded-lg ${button.className} font-['Mulish',Helvetica] font-semibold text-white text-sm`}
+              onClick={() => alert("Export clicked")}
             >
               {button.label}
             </Button>

@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "../../../../components/ui/table";
+import deleteIcon from "../../../../../public/deleteIcon.png"
 
 export const ItemListSection = (): JSX.Element => {
   // Data for the table rows
@@ -182,17 +183,15 @@ export const ItemListSection = (): JSX.Element => {
                     className={index % 2 === 1 ? "bg-[#e9e9e966]" : ""}
                   >
                     <TableCell className="text-center p-3">
-                      {index === 0 ? (
-                        <TrashIcon className="w-4 h-4 mx-auto" />
-                      ) : (
-                        <div className="relative w-4 h-4 mx-auto">
+                     
+                        <div className="relative w-4 h-4 mx-auto" onClick={() => alert("clicked")}>
                           <img
                             className="absolute w-[13px] h-4 top-0 left-px"
                             alt="Group"
-                            src={`https://c.animaapp.com/m8vgbs93FlyGpM/img/group-${11 + index}.png`}
+                            src={deleteIcon}
                           />
                         </div>
-                      )}
+                      
                     </TableCell>
                     <TableCell className="font-mulish-14-sp-medium text-foundationgreygrey-300">
                       {row.rowItem}
@@ -231,6 +230,7 @@ export const ItemListSection = (): JSX.Element => {
                 ))}
               </TableBody>
             </Table>
+            <div className="h-[50px] bg-[#e3f9ff]"></div>
 
             {/* Progress bar at the bottom */}
             <div className="w-full h-2 bg-[#ededed] rounded-b-2xl overflow-hidden">

@@ -1,4 +1,3 @@
-import { TrashIcon } from "lucide-react";
 import React from "react";
 import { Card, CardContent } from "../../../../components/ui/card";
 import {
@@ -9,9 +8,10 @@ import {
   TableHeader,
   TableRow,
 } from "../../../../components/ui/table";
+import deleteIcon from "../../../../../public/deleteIcon.png"
 
 export const SummarySection = (): JSX.Element => {
-  // Data for the table rows
+  // Sample Data for the table rows
   const tableData = [
     { id: 1, finalItem: "Computer", reqQty: "12", rawUom: "MTR", rate: "100" },
     { id: 2, finalItem: "Computer", reqQty: "4", rawUom: "MTR", rate: "100" },
@@ -25,22 +25,8 @@ export const SummarySection = (): JSX.Element => {
     { id: 10, finalItem: "Computer", reqQty: "1", rawUom: "MTR", rate: "100" },
   ];
 
-  // Icons for each row
-  const rowIcons = [
-    "https://c.animaapp.com/m8vgbs93FlyGpM/img/trash-1.svg",
-    "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-2.png",
-    "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-3.png",
-    "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-4.png",
-    "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-5.png",
-    "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-6.png",
-    "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-7.png",
-    "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-8.png",
-    "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-9.png",
-    "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-10.png",
-  ];
-
   return (
-    <section className="w-full mt-[267px] px-10">
+    <section className="w-full mt-6">
       <Card className="border border-solid border-[#ededed] rounded-2xl">
         <CardContent className="p-0">
           <Table>
@@ -74,17 +60,15 @@ export const SummarySection = (): JSX.Element => {
                 >
                   <TableCell className="p-0">
                     <div className="flex h-[46px] items-center pl-2.5 pr-8 py-4">
-                      {index === 0 ? (
-                        <TrashIcon className="w-4 h-4" />
-                      ) : (
-                        <div className="relative w-4 h-4">
+                  
+                        <div className="relative w-4 h-4" onClick={() => alert("clicked")}>
                           <img
                             className="absolute w-[13px] h-4 top-0 left-px"
                             alt="Group"
-                            src={rowIcons[index]}
+                            src={deleteIcon}
                           />
                         </div>
-                      )}
+                      
                     </div>
                   </TableCell>
                   <TableCell className="pl-4 pr-8 py-4 text-foundationgreygrey-300 font-mulish-14-sp-medium">

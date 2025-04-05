@@ -447,7 +447,7 @@ export const ListingSection = (): JSX.Element => {
               </TableBody>
               
             </Table>
-
+            <div className="h-[50px] bg-[#e3f9ff]"></div>
             {/* Progress bar at the bottom */}
             <div className="w-full h-2 bg-[#ededed] rounded-b-2xl overflow-hidden">
               <div className="relative w-[349px] h-2 left-[15px] bg-foundation-greygrey-100 rounded-[9px]" />

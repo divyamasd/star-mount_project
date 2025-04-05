@@ -1,24 +1,10 @@
 import React from "react";
 import { Button } from "../../components/ui/button";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationNext,
-  PaginationPrevious,
-} from "../../components/ui/pagination";
-import {
-  Select,
-  SelectContent,
-  SelectTrigger,
-  SelectValue,
-} from "../../components/ui/select";
 import { Separator } from "../../components/ui/separator";
-import { ComponentListSection } from "./sections/ComponentListSection";
 import { DefaultColorSizeSection } from "./sections/DefaultColorSizeSection";
 import { ListingSection } from "./sections/ListingSection/ListingSection";
 import { OrderQuantitySection } from "./sections/OrderQuantitySection/OrderQuantitySection";
 import { QuantityEntrySection } from "./sections/QuantityEntrySection";
-import { TotalQuantitySection } from "./sections/TotalQuantitySection/TotalQuantitySection";
 import { Navbar } from "../../components/Navbar/Navbar";
 
 export const OrderQuantity = (): JSX.Element => {
