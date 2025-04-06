@@ -22,7 +22,6 @@ export const OrderExchange = (): JSX.Element => {
         {/* Top section with ListingSection */}
         <div className="w-full">
           <Navbar />
-          <Separator className="mx-10" />
         </div>
 
         {/* Title */}

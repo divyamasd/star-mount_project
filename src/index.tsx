@@ -8,7 +8,8 @@ import { OrderExchange } from "./screens/OrderExchange/OrderExchange";
 import { OrderComponent } from "./screens/OrderComponent";
 import { FabricPlanning } from "./screens/FabricPlanning/FabricPlanning";
 import { FabricAverage } from "./screens/FabricAverage/FabricAverage";
-import { PackingDetails } from "./screens/PackingDetails";
+import { PackingDetails } from "./screens/PackingDetails/PackingDetails";
+import { AccessoryDetails } from "./screens/AccessoryDetails/AccessoryDetails";
 import { ProductionPlan } from "./screens/ProductionPlan/ProductionPlan";
 import { OrderAuthentication } from "./screens/OrderAuthentication/OrderAuthentication";
 
@@ -23,8 +24,8 @@ const App = () => (
       <Route path="/order-component" element={<OrderComponent />} />
       <Route path="/fabric-planning" element={<FabricPlanning />} />
       <Route path="/fabric-average" element={<FabricAverage />} />
-      <Route path="/accessory-details" element={<PackingDetails />} />
       <Route path="/packing-details" element={<PackingDetails />} />
+      <Route path="/accessory-details" element={<AccessoryDetails />} />
       <Route path="/production-plan-details" element={<ProductionPlan />} />
       <Route path="/order-authentication" element={<OrderAuthentication />} />
       <Route path="/fabric-lather-management" element={<PackingDetails />} />

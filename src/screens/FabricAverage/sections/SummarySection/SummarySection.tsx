@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import { Card, CardContent } from "../../../../components/ui/card";
+import { RadioGroup, RadioGroupItem } from "../../../../components/ui/radio-group";
 import {
   Table,
   TableBody,
@@ -8,8 +9,17 @@ import {
   TableHeader,
   TableRow,
 } from "../../../../components/ui/table";
+import deleteIcon from "../../../../../public/deleteIcon.png";
 
 export const SummarySection = (): JSX.Element => {
+  const [selectedRadio, setSelectedRadio] = useState("pattern");
+  // Data for radio options
+  const radioOptions = [
+    { id: "pattern", label: "Pattern Average", checked: true },
+    { id: "cad", label: "Cad Average", checked: false },
+    { id: "layer", label: "Layer Average", checked: false },
+    { id: "subComponent", label: "Sub Component wise Average", checked: false },
+  ];
   // Table data
   const tableData = [
     {
@@ -114,23 +124,36 @@ export const SummarySection = (): JSX.Element => {
     },
   ];
 
-  // Icons for the first column
-  const rowIcons = [
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/trash-1.svg",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-2.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-3.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-4.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-5.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-6.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-7.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-8.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-9.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-10.png",
-  ];
 
   return (
-    <div className="w-full mt-8">
-      <Card className="border border-solid border-[#ededed] rounded-2xl">
+    <div className="w-full mt-4">
+      {/* Radio Options */}
+      <div className="flex items-start gap-[53px] px-10 py-4">
+        <RadioGroup
+          value={selectedRadio}
+          onValueChange={(val) => setSelectedRadio(val)}
+          className="flex gap-[53px]"
+        >
+          {radioOptions.map((option) => (
+            <div key={option.id} className="flex items-center gap-1.5">
+              <RadioGroupItem
+                value={option.id}
+                id={option.id}
+                className="w-5 h-5 border-[#bbbbbb] data-[state=checked]:bg-[#2c97cd] data-[state=checked]:border-[#2c97cd]"
+              />
+              <label
+                htmlFor={option.id}
+                className="font-medium text-[#6c6c6c] text-base font-['Mulish',Helvetica]"
+              >
+                {option.label}
+              </label>
+            </div>
+          ))}
+        </RadioGroup>
+      </div>
+
+
+      <Card className="border border-solid border-[#ededed] rounded-2xl mx-10">
         <CardContent className="p-0">
           <div className="relative w-full">
             <Table>
@@ -173,21 +196,13 @@ export const SummarySection = (): JSX.Element => {
                   >
                     <TableCell className="p-0 w-[55px]">
                       <div className="flex h-[46px] items-center justify-center pl-2.5 pr-8 py-4">
-                        {index === 0 ? (
-                          <img
-                            className="w-4 h-4"
-                            alt="Trash"
-                            src={rowIcons[index]}
-                          />
-                        ) : (
-                          <div className="relative w-4 h-4">
+                         <div className="relative w-4 h-4">
                             <img
                               className="absolute w-[13px] h-4 top-0 left-px"
                               alt="Group"
-                              src={rowIcons[index]}
+                              src={deleteIcon}
                             />
                           </div>
-                        )}
                       </div>
                     </TableCell>
                     <TableCell className="p-2.5 text-foundationgreygrey-300 font-mulish-14-sp-medium">
