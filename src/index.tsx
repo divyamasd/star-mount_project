@@ -5,6 +5,7 @@ import { OrderEntry } from "./screens/OrderEntry";
 import { OrderQuantity } from "./screens/OrderQuantity";
 import { OrderFinalFabric } from "./screens/OrderFinalFabric";
 import { OrderExchange } from "./screens/OrderExchange/OrderExchange";
+import { FabricLatherManagement } from "./screens/FabricLatherManagement/FabricLatherManagement";
 import { OrderComponent } from "./screens/OrderComponent";
 import { FabricPlanning } from "./screens/FabricPlanning/FabricPlanning";
 import { FabricAverage } from "./screens/FabricAverage/FabricAverage";
@@ -12,6 +13,11 @@ import { PackingDetails } from "./screens/PackingDetails/PackingDetails";
 import { AccessoryDetails } from "./screens/AccessoryDetails/AccessoryDetails";
 import { ProductionPlan } from "./screens/ProductionPlan/ProductionPlan";
 import { OrderAuthentication } from "./screens/OrderAuthentication/OrderAuthentication";
+import { RowFabricLeather } from "./screens/Row Fabric Leather/RowFabricLeather";
+import { ReceivingInspection } from "./screens/ReceivingInspection/ReceivingInspection";
+import { InspectionAndReceiving } from "./screens/InspectionAndReceiving/InspectionAndReceiving";
+import { OrderProcessControl } from "./screens/OrderProcessControl/OrderProcessControl";
+import { OtherProcessControl } from "./screens/OtherProcessControl";
 
 const App = () => (
   <Router>
@@ -28,12 +34,12 @@ const App = () => (
       <Route path="/accessory-details" element={<AccessoryDetails />} />
       <Route path="/production-plan-details" element={<ProductionPlan />} />
       <Route path="/order-authentication" element={<OrderAuthentication />} />
-      <Route path="/fabric-lather-management" element={<PackingDetails />} />
-      <Route path="/row-fabric-leather" element={<PackingDetails />} />
-      <Route path="/receiving-inspection" element={<PackingDetails />} />
-      <Route path="/inspection-and-receiving" element={<PackingDetails/>} />
-      <Route path="/order-process-control" element={<ProductionPlan />} />
-      <Route path="/other-process-control" element={<OrderComponent />} />
+      <Route path="/fabric-lather-management" element={<FabricLatherManagement />} />
+      <Route path="/row-fabric-leather" element={<RowFabricLeather />} />
+      <Route path="/receiving-inspection" element={<ReceivingInspection />} />
+      <Route path="/inspection-and-receiving" element={<InspectionAndReceiving/>} />
+      <Route path="/order-process-control" element={<OrderProcessControl />} />
+      <Route path="/other-process-control" element={<OtherProcessControl />} />
       <Route path="/production-issue" element={<OrderAuthentication />} />
       <Route path="/production-received" element={<PackingDetails />} />
       <Route path="/leather-cutting-process" element={<PackingDetails />} />
