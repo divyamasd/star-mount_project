@@ -18,6 +18,15 @@ import { ReceivingInspection } from "./screens/ReceivingInspection/ReceivingInsp
 import { InspectionAndReceiving } from "./screens/InspectionAndReceiving/InspectionAndReceiving";
 import { OrderProcessControl } from "./screens/OrderProcessControl/OrderProcessControl";
 import { OtherProcessControl } from "./screens/OtherProcessControl";
+import { ProductionIssue } from "./screens/ProductionIssue/ProductionIssue";
+import { ProductionReceived } from "./screens/Production Received/ProductionReceived";
+import { LeatherCuttingProcess } from "./screens/LeatherCuttingProcess/LeatherCuttingProcess";
+import { ChallanCancellation } from "./screens/ChallanCancellation";
+import { ChallanDetail } from "./screens/ChallanDetail";
+import { PurchaseOrderDetail } from "./screens/PurchaseOrderDetail/PurchaseOrderDetail";
+import { OtherProductionOrder } from "./screens/OtherProductionORDER/OtherProductionOrder";
+import { MasterDetails } from "./screens/MasterDetails";
+import { FabricDetails } from "./screens/FabricDetails";
 
 const App = () => (
   <Router>
@@ -40,15 +49,15 @@ const App = () => (
       <Route path="/inspection-and-receiving" element={<InspectionAndReceiving/>} />
       <Route path="/order-process-control" element={<OrderProcessControl />} />
       <Route path="/other-process-control" element={<OtherProcessControl />} />
-      <Route path="/production-issue" element={<OrderAuthentication />} />
-      <Route path="/production-received" element={<PackingDetails />} />
-      <Route path="/leather-cutting-process" element={<PackingDetails />} />
-      <Route path="/challan-detail" element={<PackingDetails />} />
-      <Route path="/purchase-order-detail" element={<PackingDetails />} />
-      <Route path="/other-production-order" element={<PackingDetails />} />
-      <Route path="/challan-cancellation" element={<PackingDetails />} />
-      <Route path="/master-details" element={<PackingDetails />} />
-      <Route path="/fabric-details" element={<PackingDetails />} />
+      <Route path="/production-issue" element={<ProductionIssue />} />
+      <Route path="/production-received" element={<ProductionReceived />} />
+      <Route path="/leather-cutting-process" element={<LeatherCuttingProcess />} />
+      <Route path="/challan-detail" element={<ChallanDetail />} />
+      <Route path="/purchase-order-detail" element={<PurchaseOrderDetail />} />
+      <Route path="/other-production-order" element={<OtherProductionOrder />} />
+      <Route path="/challan-cancellation" element={<ChallanCancellation />} />
+      <Route path="/master-details" element={<MasterDetails />} />
+      <Route path="/fabric-details" element={<FabricDetails />} />
 
     </Routes>
   </Router>

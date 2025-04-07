@@ -1,0 +1,1 @@
+export { ChallanDetail } from "./ChallanDetail";

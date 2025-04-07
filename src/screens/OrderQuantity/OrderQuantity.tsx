@@ -8,16 +8,6 @@ import { QuantityEntrySection } from "./sections/QuantityEntrySection";
 import { Navbar } from "../../components/Navbar/Navbar";
 
 export const OrderQuantity = (): JSX.Element => {
-  // Pagination data
-  const paginationData = {
-    currentPage: 1,
-    totalPages: 7,
-    totalItems: 63,
-    itemsPerPage: 20,
-    showingStart: 1,
-    showingEnd: 20,
-  };
-
   return (
     <div className="bg-[#fafbfb] flex flex-row justify-center w-full">
       <div className="bg-background-color w-full relative">
