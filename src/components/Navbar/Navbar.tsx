@@ -2,7 +2,7 @@ import {
     BellIcon,
     ChevronDownIcon,
   } from "lucide-react";
-  import React from "react";
+  import React, {useState} from "react";
   import { Link, useLocation } from "react-router-dom";
   import {
     Avatar,
@@ -128,6 +128,9 @@ import {
   
   export const Navbar = (): JSX.Element => {
     const location = useLocation();
+    const [userName, setUserName] = useState("Anil Sharma");
+    const [userRole, setUserRole] = useState("Manager");
+    const [userIcon, setUserIcon] = useState("https://c.animaapp.com/m8o62etcI5Wrge/img/image.png");
   
     return (
       <header className="w-full h-[74px] bg-[#2c97cd] border border-solid border-[#f6f6f6] flex justify-between items-center px-3">
@@ -219,7 +222,7 @@ import {
   
         {/* User Profile Section */}
         <div className="flex items-center gap-6">
-          <Button variant="ghost" className="relative p-0 h-6 w-6">
+          <Button variant="ghost" className="relative p-0 h-6 w-6" onClick={() => alert("Notification clicked")}>
             <BellIcon className="h-6 w-6 text-white" />
             <span className="absolute w-2 h-2 bg-accentred-500 rounded-full top-0 right-0" />
           </Button>
@@ -229,7 +232,7 @@ import {
           <div className="flex items-center gap-3">
             <Avatar className="w-12 h-12">
               <AvatarImage
-                src="https://c.animaapp.com/m8o62etcI5Wrge/img/image.png"
+                src={userIcon}
                 alt="User avatar"
               />
               <AvatarFallback>AS</AvatarFallback>
@@ -237,10 +240,10 @@ import {
   
             <div className="flex flex-col gap-0.5">
               <div className="[font-family:'Mulish',Helvetica] font-semibold text-white text-xs">
-                Anil Sharma
+                {userName}
               </div>
               <div className="[font-family:'Mulish',Helvetica] font-medium text-white text-[10px] leading-[10px]">
-                Manager
+                {userRole}
               </div>
             </div>
   
@@ -249,7 +252,7 @@ import {
                 <ChevronDownIcon className="w-4 h-4 text-white" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
-                  <DropdownMenuItem >
+                  <DropdownMenuItem onClick={() => alert("Logout clicked")}>
                     {"Logout"}
                   </DropdownMenuItem>
               </DropdownMenuContent>

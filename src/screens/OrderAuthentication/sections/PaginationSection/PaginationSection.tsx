@@ -1,7 +1,6 @@
-import { TrashIcon } from "lucide-react";
-import React from "react";
+import { PaginationControls } from "../../../../components/Pagination/Pagination";
+import React, {useState} from "react";
 import { Card, CardContent } from "../../../../components/ui/card";
-import { Checkbox } from "../../../../components/ui/checkbox";
 import {
   Table,
   TableBody,
@@ -10,132 +9,140 @@ import {
   TableHeader,
   TableRow,
 } from "../../../../components/ui/table";
-
-// Table data for mapping
-const tableData = [
-  {
-    id: 1,
-    orderNo: "Od47688",
-    styleNo: "3445",
-    buyerName: "Sandeep",
-    orderDate: "22 july",
-    fabricDetail: "lorem ipsum",
-    accDetail: "lorem ipsum",
-    productionDetails: "lorem ipsum",
-    packDetails: "lorem ipsum",
-  },
-  {
-    id: 2,
-    orderNo: "Od47688",
-    styleNo: "3445",
-    buyerName: "roshni",
-    orderDate: "22 july",
-    fabricDetail: "lorem ipsum",
-    accDetail: "lorem ipsum",
-    productionDetails: "lorem ipsum",
-    packDetails: "lorem ipsum",
-  },
-  {
-    id: 3,
-    orderNo: "Od47688",
-    styleNo: "3445",
-    buyerName: "sunil",
-    orderDate: "22 july",
-    fabricDetail: "lorem ipsum",
-    accDetail: "lorem ipsum",
-    productionDetails: "lorem ipsum",
-    packDetails: "lorem ipsum",
-  },
-  {
-    id: 4,
-    orderNo: "Od47688",
-    styleNo: "3445",
-    buyerName: "ATS Power",
-    orderDate: "22 july",
-    fabricDetail: "lorem ipsum",
-    accDetail: "lorem ipsum",
-    productionDetails: "lorem ipsum",
-    packDetails: "lorem ipsum",
-  },
-  {
-    id: 5,
-    orderNo: "Od47688",
-    styleNo: "3445",
-    buyerName: "Divya System",
-    orderDate: "22 july",
-    fabricDetail: "lorem ipsum",
-    accDetail: "lorem ipsum",
-    productionDetails: "lorem ipsum",
-    packDetails: "lorem ipsum",
-  },
-  {
-    id: 6,
-    orderNo: "Od47688",
-    styleNo: "3445",
-    buyerName: "Ravi kumar",
-    orderDate: "22 july",
-    fabricDetail: "lorem ipsum",
-    accDetail: "lorem ipsum",
-    productionDetails: "lorem ipsum",
-    packDetails: "lorem ipsum",
-  },
-  {
-    id: 7,
-    orderNo: "Od47688",
-    styleNo: "3445",
-    buyerName: "Dinesh Sharma",
-    orderDate: "22 july",
-    fabricDetail: "lorem ipsum",
-    accDetail: "lorem ipsum",
-    productionDetails: "lorem ipsum",
-    packDetails: "lorem ipsum",
-  },
-  {
-    id: 8,
-    orderNo: "Od47688",
-    styleNo: "3445",
-    buyerName: "solan pal",
-    orderDate: "22 july",
-    fabricDetail: "lorem ipsum",
-    accDetail: "lorem ipsum",
-    productionDetails: "lorem ipsum",
-    packDetails: "lorem ipsum",
-  },
-  {
-    id: 9,
-    orderNo: "Od47688",
-    styleNo: "3445",
-    buyerName: "deepak",
-    orderDate: "22 july",
-    fabricDetail: "lorem ipsum",
-    accDetail: "lorem ipsum",
-    productionDetails: "lorem ipsum",
-    packDetails: "lorem ipsum",
-  },
-  {
-    id: 10,
-    orderNo: "Od47688",
-    styleNo: "3445",
-    buyerName: "koshal nath",
-    orderDate: "22 july",
-    fabricDetail: "lorem ipsum",
-    accDetail: "lorem ipsum",
-    productionDetails: "lorem ipsum",
-    packDetails: "lorem ipsum",
-  },
-];
+import deleteIcon from "../../../../../public/deleteIcon.png";
 
 export const PaginationSection = (): JSX.Element => {
+  // Table data for mapping
+  const sampleData = [
+    {
+      id: 1,
+      orderNo: "Od47688",
+      styleNo: "3445",
+      buyerName: "Sandeep",
+      orderDate: "22 july",
+      fabricDetail: "lorem ipsum",
+      accDetail: "lorem ipsum",
+      productionDetails: "lorem ipsum",
+      packDetails: "lorem ipsum",
+    },
+    {
+      id: 2,
+      orderNo: "Od47688",
+      styleNo: "3445",
+      buyerName: "roshni",
+      orderDate: "22 july",
+      fabricDetail: "lorem ipsum",
+      accDetail: "lorem ipsum",
+      productionDetails: "lorem ipsum",
+      packDetails: "lorem ipsum",
+    },
+    {
+      id: 3,
+      orderNo: "Od47688",
+      styleNo: "3445",
+      buyerName: "sunil",
+      orderDate: "22 july",
+      fabricDetail: "lorem ipsum",
+      accDetail: "lorem ipsum",
+      productionDetails: "lorem ipsum",
+      packDetails: "lorem ipsum",
+    },
+    {
+      id: 4,
+      orderNo: "Od47688",
+      styleNo: "3445",
+      buyerName: "ATS Power",
+      orderDate: "22 july",
+      fabricDetail: "lorem ipsum",
+      accDetail: "lorem ipsum",
+      productionDetails: "lorem ipsum",
+      packDetails: "lorem ipsum",
+    },
+    {
+      id: 5,
+      orderNo: "Od47688",
+      styleNo: "3445",
+      buyerName: "Divya System",
+      orderDate: "22 july",
+      fabricDetail: "lorem ipsum",
+      accDetail: "lorem ipsum",
+      productionDetails: "lorem ipsum",
+      packDetails: "lorem ipsum",
+    },
+    {
+      id: 6,
+      orderNo: "Od47688",
+      styleNo: "3445",
+      buyerName: "Ravi kumar",
+      orderDate: "22 july",
+      fabricDetail: "lorem ipsum",
+      accDetail: "lorem ipsum",
+      productionDetails: "lorem ipsum",
+      packDetails: "lorem ipsum",
+    },
+    {
+      id: 7,
+      orderNo: "Od47688",
+      styleNo: "3445",
+      buyerName: "Dinesh Sharma",
+      orderDate: "22 july",
+      fabricDetail: "lorem ipsum",
+      accDetail: "lorem ipsum",
+      productionDetails: "lorem ipsum",
+      packDetails: "lorem ipsum",
+    },
+    {
+      id: 8,
+      orderNo: "Od47688",
+      styleNo: "3445",
+      buyerName: "solan pal",
+      orderDate: "22 july",
+      fabricDetail: "lorem ipsum",
+      accDetail: "lorem ipsum",
+      productionDetails: "lorem ipsum",
+      packDetails: "lorem ipsum",
+    },
+    {
+      id: 9,
+      orderNo: "Od47688",
+      styleNo: "3445",
+      buyerName: "deepak",
+      orderDate: "22 july",
+      fabricDetail: "lorem ipsum",
+      accDetail: "lorem ipsum",
+      productionDetails: "lorem ipsum",
+      packDetails: "lorem ipsum",
+    },
+    {
+      id: 10,
+      orderNo: "Od47688",
+      styleNo: "3445",
+      buyerName: "koshal nath",
+      orderDate: "22 july",
+      fabricDetail: "lorem ipsum",
+      accDetail: "lorem ipsum",
+      productionDetails: "lorem ipsum",
+      packDetails: "lorem ipsum",
+    },
+  ];
+  
+  const [tableData, settableData] = useState(sampleData);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const startIdx = (currentPage - 1) * itemsPerPage;
+  const endIdx = startIdx + itemsPerPage;
+  const currentData = tableData.slice(startIdx, endIdx);
+
   return (
-    <section className="w-full my-4">
-      <Card className="border border-[#ededed] rounded-2xl">
+    <section className="w-full my-6">
+      <Card className="border border-solid border-[#ededed] rounded-2xl">
         <CardContent className="p-0">
-          <div className="w-full overflow-x-auto">
+          <div className="relative w-full">
             <Table>
-              <TableHeader className="bg-[#e3f9ff]">
-                <TableRow>
-                  <TableHead className="w-12 text-center">
-                    <TrashIcon className="w-4 h-4 mx-auto text-[#6c6c6c]" />
+              <TableHeader>
+                <TableRow className="bg-[#e3f9ff]">
+                  <TableHead className="w-[55px] rounded-tl-2xl p-0">
+                    <div className="h-12 flex items-center justify-center rounded-tl-2xl bg-[#e3f9ff]"></div>
                   </TableHead>
                   <TableHead className="w-16 text-foundationprimary-yellowyellow-900 font-mulish-14-sp-medium">
                     S.N.
@@ -167,13 +174,19 @@ export const PaginationSection = (): JSX.Element => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {tableData.map((row, index) => (
+                {currentData.map((row, index) => (
                   <TableRow
                     key={row.id}
                     className={index % 2 === 1 ? "bg-[#e9e9e966]" : ""}
                   >
-                    <TableCell className="text-center">
-                      <Checkbox className="mx-auto" />
+                    <TableCell className="p-0 pl-3 py-4 h-[46px]" onClick={() => alert("clicked")}>
+                    <div className="relative w-4 h-4" onClick={() => alert("clicked")}>
+                      <img
+                        className="absolute w-[13px] h-4 top-0 left-px"
+                        alt="Group"
+                        src={deleteIcon}
+                      />
+                    </div>
                     </TableCell>
                     <TableCell className="font-mulish-14-sp-medium text-[#6c6c6c]">
                       {row.id}
@@ -207,14 +220,33 @@ export const PaginationSection = (): JSX.Element => {
                   </TableRow>
                 ))}
               </TableBody>
+              
             </Table>
+            <div className="h-[50px] bg-[#e3f9ff]"></div>
+            {/* Progress bar at the bottom */}
+            <div className="w-full h-2 bg-[#ededed] rounded-b-2xl overflow-hidden">
+              <div className="relative w-[349px] h-2 left-[15px] bg-foundation-greygrey-100 rounded-[9px]" />
+            </div>
           </div>
-          <div className="flex items-center h-10 bg-[#e3f9ff]"></div>
-          <div className="h-2 bg-[#ededed] rounded-b-2xl overflow-hidden">
-            <div className="relative w-1/4 h-2 ml-[15px] bg-foundation-greygrey-100 rounded-[9px]" />
-          </div>
+
+          {/* Pagination controls */}
+          
         </CardContent>
       </Card>
+      <PaginationControls
+            currentPage={currentPage}
+            totalItems={tableData.length}
+            itemsPerPage={itemsPerPage}
+            onPageChange={setCurrentPage}
+            onItemsPerPageChange={(count) => {
+              setItemsPerPage(count);
+              setCurrentPage(1); // Reset to first page on limit change
+            }}
+          />
     </section>
   );
 };
+
+
+
+

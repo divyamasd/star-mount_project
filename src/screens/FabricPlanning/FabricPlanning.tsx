@@ -17,17 +17,12 @@ export const FabricPlanning = (): JSX.Element => {
 
   return (
     <div className="bg-[#fafbfb] flex flex-row justify-center w-full">
-      <div className="bg-background-color w-full max-w-[1440px] relative flex flex-col">
+      <div className="bg-background-color w-full relative flex flex-col">
         {/* Filters Section */}
         <div className="w-full">
           <Navbar />
-          <img
-            className="w-[1362px] mx-auto h-px object-cover"
-            alt="Line"
-            src="https://c.animaapp.com/m8vgbs93FlyGpM/img/line-68.svg"
-          />
         </div>
-
+        
         {/* Header and Title */}
         <div className="px-10 pt-6">
           <h1 className="font-['Mulish',Helvetica] font-semibold text-black text-2xl">
@@ -35,21 +30,27 @@ export const FabricPlanning = (): JSX.Element => {
           </h1>
           <HeaderSection />
         </div>
-
+        <Separator className="mx-9 mt-6" />
         {/* Summary Section */}
         <div className="px-10">
           <SummarySection />
         </div>
+
+        <Separator className="mx-9 mt-6" />
 
         {/* Item List Section */}
         <div className="px-10">
           <ItemListSection />
         </div>
 
+        <Separator className="mx-9 mt-6" />
+        
         {/* Action Buttons Section */}
         <div className="px-10">
           <ActionButtonsSection />
         </div>
+
+        <Separator className="mx-9 mt-6" />
 
         {/* Bottom Action Buttons */}
         <div className="flex items-center justify-center gap-[25px] py-8">
@@ -57,6 +58,7 @@ export const FabricPlanning = (): JSX.Element => {
             <Button
               key={index}
               className={`${button.bgColor} w-[138px] text-white font-['Mulish',Helvetica] font-semibold text-sm`}
+              onClick={() => alert("clicked")}
             >
               {button.text}
             </Button>

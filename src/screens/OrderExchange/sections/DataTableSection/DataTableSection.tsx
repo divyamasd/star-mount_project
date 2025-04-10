@@ -1,5 +1,5 @@
-import { TrashIcon } from "lucide-react";
-import React from "react";
+import { PaginationControls } from "../../../../components/Pagination/Pagination";
+import React, {useState} from "react";
 import { Card, CardContent } from "../../../../components/ui/card";
 import {
   Table,
@@ -9,197 +9,466 @@ import {
   TableHeader,
   TableRow,
 } from "../../../../components/ui/table";
+import deleteIcon from "../../../../../public/deleteIcon.png";
 
 export const DataTableSection = (): JSX.Element => {
   // Table data for mapping
-  const tableData = [
+  const sampleData = [
     {
       id: 1,
-      country: "India",
+      component: "Component A...",
       color: "gry",
-      date: "22/09/25",
-      size: '12"',
-      quantity: 12,
-      excess: "5%",
-      poNumber: "8600.00",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "8600.00",
     },
     {
       id: 2,
-      country: "America",
+      component: "Component A...",
       color: "black",
-      date: "22/09/25",
-      size: '12"',
-      quantity: 4,
-      excess: "12%",
-      poNumber: "4610.00",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "4610.00",
     },
     {
       id: 3,
-      country: "Spain",
+      component: "Component A...",
       color: "white",
-      date: "22/09/25",
-      size: '12"',
-      quantity: 345,
-      excess: "9%",
-      poNumber: "8900.00",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "8900.00",
     },
     {
       id: 4,
-      country: "Russia",
+      component: "Component A...",
       color: "black",
-      date: "22/09/25",
-      size: '12"',
-      quantity: 6,
-      excess: "9%",
-      poNumber: "9600.00",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "9600.00",
     },
     {
       id: 5,
-      country: "Itly",
+      component: "Component A...",
       color: "black",
-      date: "22/09/25",
-      size: '12"',
-      quantity: 88,
-      excess: "9%",
-      poNumber: "5700.00",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "5700.00",
     },
     {
       id: 6,
-      country: "America",
+      component: "Component A...",
       color: "black",
-      date: "22/09/25",
-      size: '12"',
-      quantity: 45,
-      excess: "9%",
-      poNumber: "3820.00",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3820.00",
     },
     {
       id: 7,
-      country: "China",
+      component: "Component A......",
       color: "black",
-      date: "22/09/25",
-      size: '12"',
-      quantity: 234,
-      excess: "9%",
-      poNumber: "3230.00",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3230.00",
     },
     {
       id: 8,
-      country: "Romeniya",
+      component: "Component A...",
       color: "black",
-      date: "22/09/25",
-      size: '12"',
-      quantity: 87,
-      excess: "9%",
-      poNumber: "7950.00",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "7950.00",
     },
     {
       id: 9,
-      country: "Shree Lanka",
+      component: "Component A...",
       color: "black",
-      date: "22/09/25",
-      size: '12"',
-      quantity: 99,
-      excess: "9%",
-      poNumber: "2100.00",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "2100.00",
     },
     {
       id: 10,
-      country: "Viyatnam",
+      component: "Component A...",
       color: "black",
-      date: "22/09/25",
-      size: '12"',
-      quantity: 1,
-      excess: "9%",
-      poNumber: "3040.00",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3040.00",
+    },
+    {
+      id: 11,
+      component: "Component A...",
+      color: "gry",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "8600.00",
+    },
+    {
+      id: 12,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "4610.00",
+    },
+    {
+      id: 13,
+      component: "Component A...",
+      color: "white",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "8900.00",
+    },
+    {
+      id: 14,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "9600.00",
+    },
+    {
+      id: 15,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "5700.00",
+    },
+    {
+      id: 16,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3820.00",
+    },
+    {
+      id: 17,
+      component: "Component A......",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3230.00",
+    },
+    {
+      id: 18,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "7950.00",
+    },
+    {
+      id: 19,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "2100.00",
+    },
+    {
+      id: 20,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3040.00",
+    },
+    {
+      id: 21,
+      component: "Component A...",
+      color: "gry",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "8600.00",
+    },
+    {
+      id: 22,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "4610.00",
+    },
+    {
+      id: 23,
+      component: "Component A...",
+      color: "white",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "8900.00",
+    },
+    {
+      id: 24,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "9600.00",
+    },
+    {
+      id: 25,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "5700.00",
+    },
+    {
+      id: 26,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3820.00",
+    },
+    {
+      id: 27,
+      component: "Component A......",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3230.00",
+    },
+    {
+      id: 28,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "7950.00",
+    },
+    {
+      id: 29,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "2100.00",
+    },
+    {
+      id: 30,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3040.00",
     },
   ];
-
-  // Column headers
-  const headers = [
-    { id: "select", label: "" },
-    { id: "sn", label: "S.N." },
-    { id: "country", label: "County Pack" },
-    { id: "color", label: "Colour Comb.." },
-    { id: "date", label: "Del. Date" },
-    { id: "size", label: "Size" },
-    { id: "quantity", label: "Quantity" },
-    { id: "excess", label: "Excess %" },
-    { id: "poNumber", label: "PO/BO Number" },
-  ];
+  const [tableData, settableData] = useState(sampleData);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const startIdx = (currentPage - 1) * itemsPerPage;
+  const endIdx = startIdx + itemsPerPage;
+  const currentData = tableData.slice(startIdx, endIdx);
 
   return (
-    <div className="w-full mt-8 px-10">
+    <section className="w-full my-6">
       <Card className="border border-solid border-[#ededed] rounded-2xl">
         <CardContent className="p-0">
           <div className="relative w-full">
             <Table>
               <TableHeader>
                 <TableRow className="bg-[#e3f9ff]">
-                  {headers.map((header) => (
-                    <TableHead
-                      key={header.id}
-                      className={`py-4 px-4 text-foundationprimary-yellowyellow-900 font-mulish-14-sp-medium text-sm ${
-                        header.id === "poNumber" ? "text-right" : ""
-                      }`}
-                    >
-                      {header.label}
-                    </TableHead>
-                  ))}
+                  <TableHead className="w-[55px] rounded-tl-2xl p-0">
+                    <div className="h-12 flex items-center justify-center rounded-tl-2xl bg-[#e3f9ff]"></div>
+                  </TableHead>
+                  <TableHead className="w-[71px] p-3 text-foundationprimary-yellowyellow-900 font-mulish-14-sp-medium">
+                    S.N.
+                  </TableHead>
+                  <TableHead className="w-[194px] p-4 text-foundationprimary-yellowyellow-900 font-mulish-14-sp-medium">
+                    Component
+                  </TableHead>
+                  <TableHead className="w-40 p-4 text-foundationprimary-yellowyellow-900 font-mulish-14-sp-medium">
+                    Colour Comb..
+                  </TableHead>
+                  <TableHead className="w-[171px] p-4 text-foundationprimary-yellowyellow-900 font-mulish-14-sp-medium">
+                    BO No.#/Art#Allowed
+                  </TableHead>
+                  <TableHead className="w-[135px] p-4 text-foundationprimary-yellowyellow-900 font-mulish-14-sp-medium">
+                    Del. Date
+                  </TableHead>
+                  <TableHead className="w-36 p-4 text-foundationprimary-yellowyellow-900 font-mulish-14-sp-medium">
+                    4
+                  </TableHead>
+                  <TableHead className="w-36 p-4 text-foundationprimary-yellowyellow-900 font-mulish-14-sp-medium">
+                    5/6
+                  </TableHead>
+                  <TableHead className="w-32 p-4 text-foundationprimary-yellowyellow-900 font-mulish-14-sp-medium">
+                    7/8
+                  </TableHead>
+                  <TableHead className="w-[159px] p-4 text-right text-foundationprimary-yellowyellow-900 font-mulish-14-sp-medium rounded-tr-2xl">
+                    Total
+                  </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {tableData.map((row, index) => (
+                {currentData.map((row, index) => (
                   <TableRow
                     key={row.id}
                     className={index % 2 === 1 ? "bg-[#e9e9e966]" : ""}
                   >
-                    <TableCell className="py-4 px-3">
-                      <TrashIcon className="w-4 h-4 text-gray-500" />
+                    <TableCell className="p-0 pl-3 py-4 h-[46px]" onClick={() => alert("clicked")}>
+                    <div className="relative w-4 h-4">
+                      <img
+                        className="absolute w-[13px] h-4 top-0 left-px"
+                        alt="Group"
+                        src={deleteIcon}
+                      />
+                    </div>
                     </TableCell>
-                    <TableCell className="py-4 px-3 font-mulish-14-sp-medium text-foundationgreygrey-300">
+                    <TableCell className="p-2.5 h-[46px] text-foundationgreygrey-300 font-mulish-14-sp-medium">
                       {row.id}
                     </TableCell>
-                    <TableCell className="py-4 px-4 font-mulish-14-sp-medium text-foundationgreygrey-300">
-                      {row.country}
+                    <TableCell className="p-4 h-[46px] text-foundationgreygrey-300 font-mulish-14-sp-medium">
+                      {row.component}
                     </TableCell>
-                    <TableCell className="py-4 px-4 font-medium text-[#505050] text-sm">
+                    <TableCell className="p-4 h-[46px] text-[#505050] font-medium text-sm">
                       {row.color}
                     </TableCell>
-                    <TableCell className="py-4 px-4">
+                    <TableCell className="p-4 h-[46px] text-[#505050] font-medium text-sm">
+                      {row.boAllowed}
+                    </TableCell>
+                    <TableCell className="p-4 h-[46px]">
                       <div className="inline-flex items-center gap-3">
                         <div className="font-mulish-14-sp-semibold text-foundationgreygrey-300">
-                          {row.date}
+                          {row.delDate}
                         </div>
                       </div>
                     </TableCell>
-                    <TableCell className="py-4 px-4 font-medium text-[#505050] text-sm">
-                      {row.size}
+                    <TableCell className="p-4 h-[46px] text-[#505050] font-medium text-sm">
+                      {row.col4}
                     </TableCell>
-                    <TableCell className="py-4 px-4 font-medium text-[#505050] text-sm">
-                      {row.quantity}
+                    <TableCell className="p-4 h-[46px] text-[#505050] font-medium text-sm">
+                      {row.col56}
                     </TableCell>
-                    <TableCell className="py-4 px-4 font-medium text-[#505050] text-sm">
-                      {row.excess}
+                    <TableCell className="p-4 h-[46px] text-[#505050] font-medium text-sm">
+                      {row.col78}
                     </TableCell>
-                    <TableCell className="py-4 px-4 text-right">
+                    <TableCell className="p-4 h-[46px] text-right">
                       <div className="inline-flex items-center gap-3 justify-end">
                         <div className="font-mulish-14-sp-semibold text-foundationgreygrey-300">
-                          {row.poNumber}
+                          {row.total}
                         </div>
                       </div>
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
+              
             </Table>
+            <div className="h-[50px] bg-[#e3f9ff]"></div>
 
+            {/* Progress bar at the bottom */}
             <div className="w-full h-2 bg-[#ededed] rounded-b-2xl overflow-hidden">
-              <div className="relative w-[25%] h-2 ml-[15px] bg-foundation-greygrey-100 rounded-[9px]" />
+              <div className="relative w-[349px] h-2 left-[15px] bg-foundation-greygrey-100 rounded-[9px]" />
             </div>
           </div>
+
+          {/* Pagination controls */}
+          
         </CardContent>
       </Card>
-    </div>
+      <PaginationControls
+            currentPage={currentPage}
+            totalItems={tableData.length}
+            itemsPerPage={itemsPerPage}
+            onPageChange={setCurrentPage}
+            onItemsPerPageChange={(count) => {
+              setItemsPerPage(count);
+              setCurrentPage(1); // Reset to first page on limit change
+            }}
+          />
+    </section>
   );
 };

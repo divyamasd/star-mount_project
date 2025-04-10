@@ -21,7 +21,7 @@ export const FinalFabricPlanningSection = (): JSX.Element => {
       <div className="flex w-full items-center gap-3">
         <div className="flex-1">
           <Select onValueChange={setOrderNumber}>
-            <SelectTrigger className="w-full h-12 border-[#bbbbbb] font-['Mulish',Helvetica] text-[#bbbbbb]">
+            <SelectTrigger className="w-full h-12 border-[#bbbbbb] font-['Mulish',Helvetica] text-black">
               <SelectValue placeholder="Order Number*" />
             </SelectTrigger>
             <SelectContent>
@@ -35,7 +35,7 @@ export const FinalFabricPlanningSection = (): JSX.Element => {
         </div>
         <div className="flex-1">
           <Select onValueChange={setStyleNumber}>
-            <SelectTrigger className="w-full h-12 border-[#bbbbbb] font-['Mulish',Helvetica] text-[#bbbbbb]">
+            <SelectTrigger className="w-full h-12 border-[#bbbbbb] font-['Mulish',Helvetica] text-black">
               <SelectValue placeholder="Style Number*" />
             </SelectTrigger>
             <SelectContent>
@@ -49,7 +49,7 @@ export const FinalFabricPlanningSection = (): JSX.Element => {
         </div>
         <div className="flex-1">
           <Input
-            className="w-full h-12 border-[#bbbbbb] font-['Mulish',Helvetica] text-[#bbbbbb]"
+            className="w-full h-12 border-[#bbbbbb] font-['Mulish',Helvetica] text-black"
             placeholder="Fabric Description"
           />
         </div>

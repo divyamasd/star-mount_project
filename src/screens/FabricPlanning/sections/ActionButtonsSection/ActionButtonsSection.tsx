@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "../../../../components/ui/table";
+import deleteIcon from "../../../../../public/deleteIcon.png"
 
 // Table data for mapping
 const tableData = [
@@ -134,19 +135,8 @@ const tableData = [
   },
 ];
 
-// Icons for the first column
-const iconUrls = [
-  "https://c.animaapp.com/m8vgbs93FlyGpM/img/trash-1.svg",
-  "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-20.png",
-  "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-21.png",
-  "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-22.png",
-  "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-23.png",
-  "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-24.png",
-  "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-25.png",
-  "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-26.png",
-  "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-27.png",
-  "https://c.animaapp.com/m8vgbs93FlyGpM/img/group-28.png",
-];
+
+
 
 export const ActionButtonsSection = (): JSX.Element => {
   return (
@@ -196,17 +186,15 @@ export const ActionButtonsSection = (): JSX.Element => {
                     className={index % 2 === 1 ? "bg-[#e9e9e966]" : ""}
                   >
                     <TableCell className="p-3 w-[55px]">
-                      {index === 0 ? (
-                        <TrashIcon className="w-4 h-4 text-gray-500" />
-                      ) : (
-                        <div className="relative w-4 h-4">
+                     
+                        <div className="relative w-4 h-4" onClick={() => alert("clicked")}>
                           <img
                             className="absolute w-[13px] h-4 top-0 left-px"
                             alt="Group"
-                            src={iconUrls[index]}
+                            src={deleteIcon}
                           />
                         </div>
-                      )}
+                      
                     </TableCell>
                     <TableCell className="p-4 font-mulish-14-sp-medium text-foundationgreygrey-300">
                       {row.type}
@@ -240,6 +228,7 @@ export const ActionButtonsSection = (): JSX.Element => {
               </TableBody>
             </Table>
           </div>
+          <div className="h-[50px] bg-[#e3f9ff]"></div>
           <div className="h-2 bg-[#ededed] rounded-b-2xl relative">
             <div className="w-[349px] h-2 ml-[15px] bg-foundation-greygrey-100 rounded-[9px]" />
           </div>

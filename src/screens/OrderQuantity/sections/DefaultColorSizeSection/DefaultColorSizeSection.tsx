@@ -18,7 +18,7 @@ export const DefaultColorSizeSection = (): JSX.Element => {
   ];
 
   return (
-    <div className="flex flex-col items-start gap-6 py-4">
+    <div className="flex flex-col items-start py-4 h-full justify-between">
       {options.map((option) => (
         <div key={option.id} className="flex items-center space-x-2">
           <Checkbox

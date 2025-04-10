@@ -18,11 +18,10 @@ export const OrderExchange = (): JSX.Element => {
 
   return (
     <div className="bg-[#fafbfb] flex flex-row justify-center w-full">
-      <div className="bg-background-color w-full max-w-[1440px] relative flex flex-col">
+      <div className="bg-background-color w-full relative flex flex-col">
         {/* Top section with ListingSection */}
         <div className="w-full">
           <Navbar />
-          <Separator className="mx-10" />
         </div>
 
         {/* Title */}
@@ -34,69 +33,27 @@ export const OrderExchange = (): JSX.Element => {
 
         {/* Header and Action Buttons sections */}
         <HeaderSection />
-        <ActionButtonsSection />
+       
+
+        {/* Apply Access button */}
+        <div className="flex justify-end px-10 mb-4">
+          <Button className="bg-[#2c97cd] text-white rounded-lg px-4 py-3 h-auto" onClick={() => alert("clicked")}> 
+            Apply Access
+          </Button>
+        </div>
 
         {/* Separator after action buttons */}
         <Separator className="mx-9 my-4" />
 
-        {/* Apply Access button */}
-        <div className="flex justify-end px-10 mb-4">
-          <Button className="bg-[#2c97cd] text-white rounded-lg px-4 py-3 h-auto">
-            Apply Access
-          </Button>
-        </div>
+        
 
         {/* Listing title */}
         <div className="px-10 mb-4">
           <h2 className="font-['Mulish',Helvetica] font-semibold text-[#2c97cd] text-lg">
             Listing
           </h2>
-        </div>
-
-        {/* Data Table Section */}
-        <DataTableSection />
-
-        {/* Pagination */}
-        <div className="flex justify-end items-center gap-[22px] px-10 py-4">
-          <div className="font-['Mulish',Helvetica] text-sm">
-            <span className="text-black leading-4">Showing 1 – 20</span>
-            <span className="text-[#999ca0] leading-4"> of 63</span>
-          </div>
-
-          <div className="flex items-center gap-[19px]">
-            <img
-              alt="Previous page"
-              src="https://c.animaapp.com/m8vepbdgjWOCsS/img/frame-37163.svg"
-            />
-            <div className="font-['Mulish',Helvetica] font-normal text-[#2c97cd] text-sm tracking-[24.00px] leading-4">
-              34567
-            </div>
-            <img
-              alt="Next page"
-              src="https://c.animaapp.com/m8vepbdgjWOCsS/img/frame-37164.svg"
-            />
-          </div>
-
-          <div className="flex items-center gap-3.5">
-            <div className="font-['Mulish',Helvetica] font-normal text-[#2c97cd] text-sm leading-4">
-              Go to page
-            </div>
-            <div className="flex items-center justify-center px-1 py-0.5 bg-[#2c97cd] rounded-sm">
-              <div className="font-['Mulish',Helvetica] font-normal text-white text-sm leading-4">
-                5
-              </div>
-            </div>
-            <div className="flex items-center gap-[3px] px-1 py-0.5 bg-[#2c97cd] rounded-sm">
-              <div className="font-['Mulish',Helvetica] font-normal text-white text-sm leading-4">
-                10
-              </div>
-              <img
-                className="w-[7px] h-[4.77px]"
-                alt="Dropdown"
-                src="https://c.animaapp.com/m8vepbdgjWOCsS/img/vector-269.svg"
-              />
-            </div>
-          </div>
+          {/* Data Table Section */}
+          <DataTableSection />
         </div>
 
         {/* Separator before action buttons */}
@@ -104,13 +61,13 @@ export const OrderExchange = (): JSX.Element => {
 
         {/* Bottom action buttons */}
         <div className="flex justify-center items-center gap-[25px] mb-6">
-          <Button className="w-[138px] bg-[#20c86c] text-white rounded-lg px-4 py-3 h-auto font-['Mulish',Helvetica] font-semibold text-sm">
+          <Button className="w-[138px] bg-[#20c86c] text-white rounded-lg px-4 py-3 h-auto font-['Mulish',Helvetica] font-semibold text-sm" onClick={() => alert("clicked")}>
             Apply
           </Button>
-          <Button className="w-[138px] bg-[#faa720] text-white rounded-lg px-4 py-3 h-auto font-['Mulish',Helvetica] font-semibold text-sm">
+          <Button className="w-[138px] bg-[#faa720] text-white rounded-lg px-4 py-3 h-auto font-['Mulish',Helvetica] font-semibold text-sm" onClick={() => alert("clicked")}>
             Row Clear
           </Button>
-          <Button className="w-[138px] bg-[#2c97cd] text-white rounded-lg px-4 py-3 h-auto font-['Mulish',Helvetica] font-semibold text-sm">
+          <Button className="w-[138px] bg-[#2c97cd] text-white rounded-lg px-4 py-3 h-auto font-['Mulish',Helvetica] font-semibold text-sm" onClick={() => alert("clicked")}>
             Save
           </Button>
         </div>

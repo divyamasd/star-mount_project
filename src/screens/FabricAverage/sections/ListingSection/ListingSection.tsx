@@ -1,16 +1,19 @@
-import React from "react";
+import { PaginationControls } from "../../../../components/Pagination/Pagination";
+import React, {useState} from "react";
 import { Card, CardContent } from "../../../../components/ui/card";
 import {
   Table,
   TableBody,
   TableCell,
+  TableHead,
   TableHeader,
   TableRow,
 } from "../../../../components/ui/table";
+import deleteIcon from "../../../../../public/deleteIcon.png";
 
-export const PaginationSection = (): JSX.Element => {
+export const ListingSection = (): JSX.Element => {
   // Table data for mapping
-  const tableData = [
+  const sampleData = [
     {
       id: 1,
       color: "red",
@@ -122,27 +125,20 @@ export const PaginationSection = (): JSX.Element => {
       dznAverage: "33",
     },
   ];
-
-  // Group icons for each row
-  const groupIcons = [
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-11.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-12.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-13.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-14.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-15.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-16.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-17.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-18.png",
-    "https://c.animaapp.com/m8vgn850ySdIeE/img/group-19.png",
-  ];
+  const [tableData, settableData] = useState(sampleData);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const startIdx = (currentPage - 1) * itemsPerPage;
+  const endIdx = startIdx + itemsPerPage;
+  const currentData = tableData.slice(startIdx, endIdx);
 
   return (
-    <section className="w-full my-8">
-      <Card className="border border-[#ededed] rounded-2xl">
+    <section className="mx-10 my-6">
+      <Card className="border border-solid border-[#ededed] rounded-2xl">
         <CardContent className="p-0">
-          <div className="w-full">
+          <div className="relative w-full">
             <Table>
-              <TableHeader className="bg-[#e3f9ff]">
+            <TableHeader className="bg-[#e3f9ff]">
                 <TableRow>
                   <TableCell className="w-[55px] p-0 rounded-tl-2xl">
                     <div className="h-12 flex items-center justify-center bg-[#e3f9ff] rounded-tl-2xl"></div>
@@ -177,74 +173,75 @@ export const PaginationSection = (): JSX.Element => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {tableData.map((row, index) => (
+                {currentData.map((row, index) => (
                   <TableRow
                     key={row.id}
                     className={index % 2 === 1 ? "bg-[#e9e9e966]" : ""}
                   >
-                    <TableCell className="p-0 w-[55px]">
-                      <div className="flex h-[46px] items-center justify-center pl-2.5 pr-8 py-4">
-                        {index === 0 ? (
-                          <img
-                            className="w-4 h-4"
-                            alt="Trash"
-                            src="https://c.animaapp.com/m8vgn850ySdIeE/img/trash-1.svg"
-                          />
-                        ) : (
-                          <div className="relative w-4 h-4">
-                            <img
-                              className="absolute w-[13px] h-4 top-0 left-px"
-                              alt="Group"
-                              src={groupIcons[index - 1]}
-                            />
-                          </div>
-                        )}
-                      </div>
+                    <TableCell className="p-0 pl-3 py-4 h-[46px]" onClick={() => alert("clicked")}>
+                    <div className="relative w-4 h-4">
+                      <img
+                        className="absolute w-[13px] h-4 top-0 left-px"
+                        alt="Group"
+                        src={deleteIcon}
+                      />
+                    </div>
                     </TableCell>
-                    <TableCell className="py-4 pl-2.5 pr-8 font-mulish-14-sp-medium text-foundationgreygrey-300">
+                    <TableCell className="p-2.5 h-[46px] text-foundationgreygrey-300 font-mulish-14-sp-medium">
                       {row.id}
                     </TableCell>
-                    <TableCell className="py-4 pl-4 pr-8 font-mulish-14-sp-medium text-foundationgreygrey-300">
+                    <TableCell className="p-4 h-[46px] text-foundationgreygrey-300 font-mulish-14-sp-medium">
                       {row.color}
                     </TableCell>
-                    <TableCell className="py-4 pl-4 pr-8 font-mulish-14-sp-medium text-foundationgreygrey-300">
+                    <TableCell className="p-4 h-[46px] text-[#505050] font-medium text-sm">
                       {row.fabric}
                     </TableCell>
-                    <TableCell className="py-4 pl-4 pr-8 font-medium text-[#505050] text-sm">
+                    <TableCell className="p-4 h-[46px] text-[#505050] font-medium text-sm">
                       {row.size}
                     </TableCell>
-                    <TableCell className="py-4 pl-4 pr-8 font-medium text-[#505050] text-sm">
+                    <TableCell className="p-4 h-[46px] text-[#505050] font-medium text-sm">
                       {row.pattAverage}
                     </TableCell>
-                    <TableCell className="py-4 pl-4 pr-8">
-                      <div className="font-mulish-14-sp-semibold text-foundationgreygrey-300">
-                        {row.cadAverage}
-                      </div>
+                    <TableCell className="p-4 h-[46px] text-[#505050] font-medium text-sm">
+                      {row.cadAverage}
                     </TableCell>
-                    <TableCell className="py-4 pl-4 pr-8 font-medium text-[#505050] text-sm">
+                    <TableCell className="p-4 h-[46px] text-[#505050] font-medium text-sm">
                       {row.cuttExcess}
                     </TableCell>
-                    <TableCell className="py-4 pl-4 pr-8 font-medium text-[#505050] text-sm">
+                    <TableCell className="p-4 h-[46px] text-[#505050] font-medium text-sm">
                       {row.extraFab}
                     </TableCell>
-                    <TableCell className="py-4 pl-4 pr-8">
-                      <div className="font-mulish-14-sp-semibold text-foundationgreygrey-300 text-right">
-                        {row.dznAverage}
-                      </div>
+                    <TableCell className="p-4 h-[46px] text-[#505050] font-medium text-sm">
+                      {row.dznAverage}
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
+              
             </Table>
-
+            <div className="h-[50px] bg-[#e3f9ff]"></div>
             {/* Progress bar at the bottom */}
-            <div className="w-full h-[50px] bg-[#e3f9ff]"></div>
             <div className="w-full h-2 bg-[#ededed] rounded-b-2xl overflow-hidden">
-              <div className="relative w-[349px] h-2 left-[15px] bg-foundation-greygrey-100 rounded-[9px]"></div>
+              <div className="relative w-[349px] h-2 left-[15px] bg-foundation-greygrey-100 rounded-[9px]" />
             </div>
           </div>
+
+          {/* Pagination controls */}
+          
         </CardContent>
       </Card>
+      <PaginationControls
+            currentPage={currentPage}
+            totalItems={tableData.length}
+            itemsPerPage={itemsPerPage}
+            onPageChange={setCurrentPage}
+            onItemsPerPageChange={(count) => {
+              setItemsPerPage(count);
+              setCurrentPage(1); // Reset to first page on limit change
+            }}
+          />
     </section>
   );
 };
+
+

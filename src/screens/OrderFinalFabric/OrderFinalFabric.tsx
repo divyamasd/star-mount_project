@@ -11,7 +11,7 @@ import {
   PaginationPrevious,
 } from "../../components/ui/pagination";
 import { Separator } from "../../components/ui/separator";
-import { ActionButtonsSection } from "./sections/ActionButtonsSection/ActionButtonsSection";
+import { ListingSection } from "./sections/ListingSection/ListingSection";
 import { CreateSelectFinalFabricSection } from "./sections/CreateSelectFinalFabricSection";
 import { FabricDetailsSection } from "./sections/FabricDetailsSection/FabricDetailsSection";
 import { FinalFabricPlanningSection } from "./sections/FinalFabricPlanningSection/FinalFabricPlanningSection";
@@ -58,16 +58,15 @@ export const OrderFinalFabric = (): JSX.Element => {
 
   return (
     <div className="bg-[#fafbfb] flex flex-row justify-center w-full">
-      <div className="bg-background-color w-full max-w-[1440px] relative">
+      <div className="bg-background-color w-full relative">
         {/* Header and Listing Section */}
         <div className="w-full">
           <Navbar />
-          <Separator className="mx-10 my-2" />
         </div>
 
         {/* Title */}
-        <div className="px-10 py-4">
-          <h1 className="font-semibold text-black text-2xl font-['Mulish',Helvetica]">
+        <div className="px-10 mt-6">
+          <h1 className="font-mulish font-semibold text-2xl">
             Style Order Final Fabric Details
           </h1>
         </div>
@@ -111,9 +110,6 @@ export const OrderFinalFabric = (): JSX.Element => {
         {/* Create Select Final Fabric Section */}
         <CreateSelectFinalFabricSection />
 
-        {/* Fabric Details Section */}
-        <FabricDetailsSection />
-
         {/* Detail Action Buttons */}
         <div className="flex justify-end px-10 py-4 gap-3">
           {detailActionButtons.map((button, index) => (
@@ -121,6 +117,7 @@ export const OrderFinalFabric = (): JSX.Element => {
               key={index}
               variant={button.variant === "outline" ? "outline" : "default"}
               className={`text-sm font-semibold ${button.variant === "outline" ? "text-[#2c97cd] border-[#2c98cd]" : `bg-[${button.bgColor}] text-${button.color}`}`}
+              onClick={() => alert("clicked")}
             >
               {button.label}
             </Button>
@@ -158,50 +155,12 @@ export const OrderFinalFabric = (): JSX.Element => {
               </div>
             ))}
           </div>
+          
         </div>
-
-        {/* Action Buttons Section */}
-        <ActionButtonsSection />
-
-        {/* Pagination */}
-        <div className="flex justify-end items-center px-10 py-4 gap-[22px]">
-          <div className="text-sm font-normal">
-            <span className="text-black">Showing 1 - 20</span>
-            <span className="text-[#999ca0]"> of {totalPages}</span>
-          </div>
-
-          <Pagination>
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious href="#" onClick={() => setCurrentPage(Math.max(1, currentPage - 1))} />
-              </PaginationItem>
-              {[...Array(5)].map((_, index) => {
-                const pageNumber = currentPage - 2 + index;
-                if (pageNumber > 0 && pageNumber <= totalPages) {
-                  return (
-                    <PaginationItem key={pageNumber}>
-                      <PaginationLink
-                        href="#"
-                        isActive={pageNumber === currentPage}
-                        onClick={() => setCurrentPage(pageNumber)}
-                      >
-                        {pageNumber}
-                      </PaginationLink>
-                    </PaginationItem>
-                  );
-                }
-                return null;
-              })}
-              <PaginationItem>
-                <PaginationEllipsis />
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationNext href="#" onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))} />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
+        <div className="px-10">
+          <ListingSection />
         </div>
-
+           
         <Separator className="mx-9 my-2" />
 
         {/* Main Action Buttons */}
@@ -210,6 +169,7 @@ export const OrderFinalFabric = (): JSX.Element => {
             <Button
               key={index}
               className={`w-[138px] bg-[${button.bgColor}] text-white font-semibold text-sm hover:opacity-90`}
+              onClick={() => alert("clicked")}
             >
               {button.label}
             </Button>

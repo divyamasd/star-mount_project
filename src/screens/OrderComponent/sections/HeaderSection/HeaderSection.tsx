@@ -1,4 +1,3 @@
-import { CalendarIcon, CheckIcon } from "lucide-react";
 import React, { useState } from "react";
 import {
   Select,
@@ -51,7 +50,6 @@ export const HeaderSection = (): JSX.Element => {
             onChange={(e) => setInitialDate(e.target.value)}
             className="w-full bg-transparent outline-none [font-family:'Mulish',Helvetica] font-medium text-foundationgreygrey-100 text-base"
           />
-          <CalendarIcon className="w-5 h-5 text-gray-500" />
         </div>
       </div>
 
@@ -60,7 +58,7 @@ export const HeaderSection = (): JSX.Element => {
           id="amendment"
           checked={isAmendment}
           onCheckedChange={(checked) => setIsAmendment(checked as boolean)}
-          className="w-6 h-6 border-2 border-[#2c97cd] rounded"
+          className="w-5 h-5 border-2 border-[#2c97cd] rounded"
         />
         <label
           htmlFor="amendment"

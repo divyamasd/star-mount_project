@@ -5,12 +5,28 @@ import { OrderEntry } from "./screens/OrderEntry";
 import { OrderQuantity } from "./screens/OrderQuantity";
 import { OrderFinalFabric } from "./screens/OrderFinalFabric";
 import { OrderExchange } from "./screens/OrderExchange/OrderExchange";
+import { FabricLatherManagement } from "./screens/FabricLatherManagement/FabricLatherManagement";
 import { OrderComponent } from "./screens/OrderComponent";
 import { FabricPlanning } from "./screens/FabricPlanning/FabricPlanning";
 import { FabricAverage } from "./screens/FabricAverage/FabricAverage";
-import { PackingDetails } from "./screens/PackingDetails";
+import { PackingDetails } from "./screens/PackingDetails/PackingDetails";
+import { AccessoryDetails } from "./screens/AccessoryDetails/AccessoryDetails";
 import { ProductionPlan } from "./screens/ProductionPlan/ProductionPlan";
 import { OrderAuthentication } from "./screens/OrderAuthentication/OrderAuthentication";
+import { RowFabricLeather } from "./screens/Row Fabric Leather/RowFabricLeather";
+import { ReceivingInspection } from "./screens/ReceivingInspection/ReceivingInspection";
+import { InspectionAndReceiving } from "./screens/InspectionAndReceiving/InspectionAndReceiving";
+import { OrderProcessControl } from "./screens/OrderProcessControl/OrderProcessControl";
+import { OtherProcessControl } from "./screens/OtherProcessControl";
+import { ProductionIssue } from "./screens/ProductionIssue/ProductionIssue";
+import { ProductionReceived } from "./screens/Production Received/ProductionReceived";
+import { LeatherCuttingProcess } from "./screens/LeatherCuttingProcess/LeatherCuttingProcess";
+import { ChallanCancellation } from "./screens/ChallanCancellation";
+import { ChallanDetail } from "./screens/ChallanDetail";
+import { PurchaseOrderDetail } from "./screens/PurchaseOrderDetail/PurchaseOrderDetail";
+import { OtherProductionOrder } from "./screens/OtherProductionORDER/OtherProductionOrder";
+import { MasterDetails } from "./screens/MasterDetails";
+import { FabricDetails } from "./screens/FabricDetails";
 
 const App = () => (
   <Router>
@@ -23,25 +39,25 @@ const App = () => (
       <Route path="/order-component" element={<OrderComponent />} />
       <Route path="/fabric-planning" element={<FabricPlanning />} />
       <Route path="/fabric-average" element={<FabricAverage />} />
-      <Route path="/accessory-details" element={<PackingDetails />} />
       <Route path="/packing-details" element={<PackingDetails />} />
+      <Route path="/accessory-details" element={<AccessoryDetails />} />
       <Route path="/production-plan-details" element={<ProductionPlan />} />
       <Route path="/order-authentication" element={<OrderAuthentication />} />
-      <Route path="/fabric-lather-management" element={<PackingDetails />} />
-      <Route path="/row-fabric-leather" element={<PackingDetails />} />
-      <Route path="/receiving-inspection" element={<PackingDetails />} />
-      <Route path="/inspection-and-receiving" element={<PackingDetails/>} />
-      <Route path="/order-process-control" element={<ProductionPlan />} />
-      <Route path="/other-process-control" element={<OrderComponent />} />
-      <Route path="/production-issue" element={<OrderAuthentication />} />
-      <Route path="/production-received" element={<PackingDetails />} />
-      <Route path="/leather-cutting-process" element={<PackingDetails />} />
-      <Route path="/challan-detail" element={<PackingDetails />} />
-      <Route path="/purchase-order-detail" element={<PackingDetails />} />
-      <Route path="/other-production-order" element={<PackingDetails />} />
-      <Route path="/challan-cancellation" element={<PackingDetails />} />
-      <Route path="/master-details" element={<PackingDetails />} />
-      <Route path="/fabric-details" element={<PackingDetails />} />
+      <Route path="/fabric-lather-management" element={<FabricLatherManagement />} />
+      <Route path="/row-fabric-leather" element={<RowFabricLeather />} />
+      <Route path="/receiving-inspection" element={<ReceivingInspection />} />
+      <Route path="/inspection-and-receiving" element={<InspectionAndReceiving/>} />
+      <Route path="/order-process-control" element={<OrderProcessControl />} />
+      <Route path="/other-process-control" element={<OtherProcessControl />} />
+      <Route path="/production-issue" element={<ProductionIssue />} />
+      <Route path="/production-received" element={<ProductionReceived />} />
+      <Route path="/leather-cutting-process" element={<LeatherCuttingProcess />} />
+      <Route path="/challan-detail" element={<ChallanDetail />} />
+      <Route path="/purchase-order-detail" element={<PurchaseOrderDetail />} />
+      <Route path="/other-production-order" element={<OtherProductionOrder />} />
+      <Route path="/challan-cancellation" element={<ChallanCancellation />} />
+      <Route path="/master-details" element={<MasterDetails />} />
+      <Route path="/fabric-details" element={<FabricDetails />} />
 
     </Routes>
   </Router>

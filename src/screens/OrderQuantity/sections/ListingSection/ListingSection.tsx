@@ -1,5 +1,5 @@
-import { TrashIcon } from "lucide-react";
-import React from "react";
+import { PaginationControls } from "../../../../components/Pagination/Pagination";
+import React, {useState} from "react";
 import { Card, CardContent } from "../../../../components/ui/card";
 import {
   Table,
@@ -9,10 +9,11 @@ import {
   TableHeader,
   TableRow,
 } from "../../../../components/ui/table";
+import deleteIcon from "../../../../../public/deleteIcon.png";
 
 export const ListingSection = (): JSX.Element => {
   // Table data for mapping
-  const tableData = [
+  const sampleData = [
     {
       id: 1,
       component: "Component A...",
@@ -123,20 +124,233 @@ export const ListingSection = (): JSX.Element => {
       col78: "No",
       total: "3040.00",
     },
+    {
+      id: 11,
+      component: "Component A...",
+      color: "gry",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "8600.00",
+    },
+    {
+      id: 12,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "4610.00",
+    },
+    {
+      id: 13,
+      component: "Component A...",
+      color: "white",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "8900.00",
+    },
+    {
+      id: 14,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "9600.00",
+    },
+    {
+      id: 15,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "5700.00",
+    },
+    {
+      id: 16,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3820.00",
+    },
+    {
+      id: 17,
+      component: "Component A......",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3230.00",
+    },
+    {
+      id: 18,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "7950.00",
+    },
+    {
+      id: 19,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "2100.00",
+    },
+    {
+      id: 20,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3040.00",
+    },
+    {
+      id: 21,
+      component: "Component A...",
+      color: "gry",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "8600.00",
+    },
+    {
+      id: 22,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "4610.00",
+    },
+    {
+      id: 23,
+      component: "Component A...",
+      color: "white",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "8900.00",
+    },
+    {
+      id: 24,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "9600.00",
+    },
+    {
+      id: 25,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "5700.00",
+    },
+    {
+      id: 26,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3820.00",
+    },
+    {
+      id: 27,
+      component: "Component A......",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3230.00",
+    },
+    {
+      id: 28,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "7950.00",
+    },
+    {
+      id: 29,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "Yes",
+      delDate: "22/09/25",
+      col4: "Yes",
+      col56: "Yes",
+      col78: "Yes",
+      total: "2100.00",
+    },
+    {
+      id: 30,
+      component: "Component A...",
+      color: "black",
+      boAllowed: "No",
+      delDate: "22/09/25",
+      col4: "No",
+      col56: "No",
+      col78: "No",
+      total: "3040.00",
+    },
   ];
-
-  // Group icons for each row
-  const getGroupIcon = (id: number) => {
-    return (
-      <div className="relative w-4 h-4">
-        <img
-          className="absolute w-[13px] h-4 top-0 left-px"
-          alt="Group"
-          src={`https://c.animaapp.com/m8o7e9ng9ZZS14/img/group-${id + 1}.png`}
-        />
-      </div>
-    );
-  };
+  const [tableData, settableData] = useState(sampleData);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const startIdx = (currentPage - 1) * itemsPerPage;
+  const endIdx = startIdx + itemsPerPage;
+  const currentData = tableData.slice(startIdx, endIdx);
 
   return (
     <section className="w-full my-6">
@@ -179,17 +393,19 @@ export const ListingSection = (): JSX.Element => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {tableData.map((row, index) => (
+                {currentData.map((row, index) => (
                   <TableRow
                     key={row.id}
                     className={index % 2 === 1 ? "bg-[#e9e9e966]" : ""}
                   >
-                    <TableCell className="p-0 pl-3 py-4 h-[46px]">
-                      {index === 0 ? (
-                        <TrashIcon className="w-4 h-4 text-gray-500" />
-                      ) : (
-                        getGroupIcon(index)
-                      )}
+                    <TableCell className="p-0 pl-3 py-4 h-[46px]" onClick={() => alert("clicked")}>
+                    <div className="relative w-4 h-4">
+                      <img
+                        className="absolute w-[13px] h-4 top-0 left-px"
+                        alt="Group"
+                        src={deleteIcon}
+                      />
+                    </div>
                     </TableCell>
                     <TableCell className="p-2.5 h-[46px] text-foundationgreygrey-300 font-mulish-14-sp-medium">
                       {row.id}
@@ -229,15 +445,29 @@ export const ListingSection = (): JSX.Element => {
                   </TableRow>
                 ))}
               </TableBody>
+              
             </Table>
-
+            <div className="h-[50px] bg-[#e3f9ff]"></div>
             {/* Progress bar at the bottom */}
             <div className="w-full h-2 bg-[#ededed] rounded-b-2xl overflow-hidden">
               <div className="relative w-[349px] h-2 left-[15px] bg-foundation-greygrey-100 rounded-[9px]" />
             </div>
           </div>
+
+          {/* Pagination controls */}
+          
         </CardContent>
       </Card>
+      <PaginationControls
+            currentPage={currentPage}
+            totalItems={tableData.length}
+            itemsPerPage={itemsPerPage}
+            onPageChange={setCurrentPage}
+            onItemsPerPageChange={(count) => {
+              setItemsPerPage(count);
+              setCurrentPage(1); // Reset to first page on limit change
+            }}
+          />
     </section>
   );
 };
