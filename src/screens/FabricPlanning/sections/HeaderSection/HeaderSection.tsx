@@ -1,19 +1,11 @@
-import { CalendarIcon, ChevronDownIcon } from "lucide-react";
 import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-
-import { Input } from "../../../../components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../../../../components/ui/select";
+import { SelectInput } from "../../../../components/FormInputs/SelectInput";
+import { CalendarInput } from "../../../../components/FormInputs/CalendarInput";
+import { TextInput } from "../../../../components/FormInputs/TextInput";
 
 export const HeaderSection = (): JSX.Element => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const options = ["one","two","three"];
 
   return (
     <section className="flex flex-col gap-5 w-full mt-6">
@@ -21,53 +13,31 @@ export const HeaderSection = (): JSX.Element => {
 
         {/* Select Input */}
         <div className="w-full max-w-[331px]">
-          <Select>
-            <SelectTrigger className="w-full h-12 border border-[#bbbbbb] rounded-lg font-[Mulish] font-medium text-[#505050] placeholder-[#bbbbbb] px-4">
-              <div className="flex items-center justify-between w-full">
-                <SelectValue placeholder="Buyer" />
-              </div>
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="option1">Option 1</SelectItem>
-              <SelectItem value="option2">Option 2</SelectItem>
-              <SelectItem value="option3">Option 3</SelectItem>
-            </SelectContent>
-          </Select>
+          <SelectInput
+            name = "buyer"
+            options ={options}
+            placeholder= "Buyer"
+            id = "buyer"
+          />
         </div>
 
         {/* Text Input */}
         <div className="w-full max-w-[331px]">
-          <Input
-            placeholder="PO / BO Number"
-            className="w-full h-12 border border-[#bbbbbb] rounded-lg font-[Mulish] font-medium text-[#505050] placeholder-[#bbbbbb] px-4"
+          <TextInput
+            name="po/bo number"
+            placeholder= "PO/BO Number"
+            id = "po/bo number"
           />
         </div>
 
         {/* Date Input (like working implementation) */}
         <div className="w-full max-w-[331px] relative">
           {/* Read-only styled input */}
-          <input
-            type="text"
-            value={selectedDate ? selectedDate.toLocaleDateString() : ""}
-            placeholder="Order Date"
-            readOnly
-            className="h-12 w-full px-4 py-2 pr-12 rounded-lg border border-solid border-[#bbbbbb] text-black font-light text-base bg-white"
-          />
-
-          {/* DatePicker triggered by icon button */}
-          <DatePicker
-            selected={selectedDate}
-            onChange={(date: Date) => setSelectedDate(date)}
-            popperPlacement="bottom-end"
-            dateFormat="PPP"
-            customInput={
-              <button
-                type="button"
-                className="absolute right-4 top-1/2 transform -translate-y-1/2"
-              >
-                <CalendarIcon className="w-5 h-5 text-black cursor-pointer" />
-              </button>
-            }
+          <CalendarInput
+            selectedDate = {selectedDate}
+            setSelectedDate ={setSelectedDate}
+            placeholder = "Order Date"
+            id = "order date"
           />
         </div>
       </div>
