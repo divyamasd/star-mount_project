@@ -1,58 +1,7 @@
-import { CalendarIcon, CheckIcon } from "lucide-react";
 import React, { useRef, useState } from "react";
-import { Input } from "../../../../components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../../../../components/ui/select";
 import { Button } from "../../../../components/ui/button";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { format } from "date-fns";
-
-const CalendarInput = ({
-  selectedDate,
-  setSelectedDate,
-  placeholder,
-  id,
-}: {
-  selectedDate: Date | null;
-  setSelectedDate: (date: Date | null) => void;
-  placeholder: string;
-  id: string;
-}) => {
-  const datePickerRef = useRef<any>(null);
-
-  return (
-    <div className="relative w-full">
-      <input
-        type="text"
-        readOnly
-        value={selectedDate ? format(selectedDate, "PPP") : ""}
-        placeholder={placeholder}
-        className={`h-12 w-full cursor-default rounded-md border border-[#bbbbbb] bg-transparent px-4 py-2 text-base font-medium text-[#505050] placeholder-[#bbbbbb] ${
-          !selectedDate ? "text-[#bbbbbb]" : ""
-        }`}
-        onClick={() => datePickerRef.current.setOpen(true)}
-      />
-      <CalendarIcon
-        className="absolute right-4 top-3.5 h-5 w-5 text-[#505050] cursor-pointer"
-        onClick={() => datePickerRef.current.setOpen(true)}
-      />
-      <DatePicker
-        selected={selectedDate}
-        onChange={(date) => setSelectedDate(date)}
-        ref={datePickerRef}
-        customInput={<></>}
-        id={id}
-        popperPlacement="bottom-start"
-      />
-    </div>
-  );
-};
+import { CalendarInput } from "../../../../components/FormInputs/CalendarInput";
+import { TextInput } from "../../../../components/FormInputs/TextInput";
 
 export const HeaderSection = (): JSX.Element => {
   const [fromDeliDate, setFromDeliDate] = useState<Date | null>(null);
@@ -65,43 +14,49 @@ export const HeaderSection = (): JSX.Element => {
     <>
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
+          <TextInput
+            name="month"
             placeholder="Month"
+            id="month"
           />
         </div>
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
+         <TextInput
+            name="year"
             placeholder="Year"
+            id="year"
           />
         </div>
 
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
+          <TextInput
+            name="buyer"
             placeholder="Buyer"
+            id="buyer"
           />
         </div>
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
+          <TextInput
+            name="season"
             placeholder="Season"
+            id="season"
           />
         </div>
 
       </div>
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-         <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
-            placeholder="Style No."
+         <TextInput
+            name="style number"
+            placeholder="Style number"
+            id="style number"
           />
         </div>
         <div className="flex-1">
-         <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
-            placeholder="Order No."
+         <TextInput
+            name="order number"
+            placeholder="Order number"
+            id="order number"
           />
         </div>
 
@@ -126,16 +81,18 @@ export const HeaderSection = (): JSX.Element => {
 
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-         <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
-            placeholder="Style Group"
+         <TextInput
+            name="style group"
+            placeholder="Style group"
+            id="style group"
           />
         </div>
 
         <div className="flex-1">
-         <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
+         <TextInput
+            name="location"
             placeholder="Location"
+            id="location"
           />
         </div>
 
@@ -160,23 +117,26 @@ export const HeaderSection = (): JSX.Element => {
 
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
+         <TextInput
+            name="merchandiser"
             placeholder="Merchandiser"
+            id="merchandiser"
           />
         </div>
 
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
-            placeholder="Other Group"
+         <TextInput
+            name="other group"
+            placeholder="Other group"
+            id="other group"
           />
         </div>
 
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
-            placeholder="Detail Type"
+         <TextInput
+            name="detail type"
+            placeholder="Detail type"
+            id="detail type"
           />
         </div>
 

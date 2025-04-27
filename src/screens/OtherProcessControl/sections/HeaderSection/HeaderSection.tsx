@@ -1,89 +1,28 @@
-import { CalendarIcon, CheckIcon } from "lucide-react";
+import { CheckIcon } from "lucide-react";
 import React, { useRef, useState } from "react";
-import { Input } from "../../../../components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../../../../components/ui/select";
 import { Button } from "../../../../components/ui/button";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { format } from "date-fns";
-
-const CalendarInput = ({
-  selectedDate,
-  setSelectedDate,
-  placeholder,
-  id,
-}: {
-  selectedDate: Date | null;
-  setSelectedDate: (date: Date | null) => void;
-  placeholder: string;
-  id: string;
-}) => {
-  const datePickerRef = useRef<any>(null);
-
-  return (
-    <div className="relative w-full">
-      <input
-        type="text"
-        readOnly
-        value={selectedDate ? format(selectedDate, "PPP") : ""}
-        placeholder={placeholder}
-        className={`h-12 w-full cursor-default rounded-md border border-[#bbbbbb] bg-transparent px-4 py-2 text-base font-medium text-[#505050] placeholder-[#bbbbbb] ${
-          !selectedDate ? "text-[#bbbbbb]" : ""
-        }`}
-        onClick={() => datePickerRef.current.setOpen(true)}
-      />
-      <CalendarIcon
-        className="absolute right-4 top-3.5 h-5 w-5 text-[#505050] cursor-pointer"
-        onClick={() => datePickerRef.current.setOpen(true)}
-      />
-      <DatePicker
-        selected={selectedDate}
-        onChange={(date) => setSelectedDate(date)}
-        ref={datePickerRef}
-        customInput={<></>}
-        id={id}
-        popperPlacement="bottom-start"
-      />
-    </div>
-  );
-};
+import { SelectInput } from "../../../../components/FormInputs/SelectInput";
+import { TextInput } from "../../../../components/FormInputs/TextInput";
+import { CalendarInput } from "../../../../components/FormInputs/CalendarInput";
 
 export const HeaderSection = (): JSX.Element => {
   const [Date, setDate] = useState<Date | null>(null);
   const [billingAt, setBillingAt] = useState<Date | null>(null);
   const [materialIssue, setMaterialIssue] = useState(false);
-  
-  const companyNames = ["Company 1", "Company 2", "Company 3"];
-  const receiverNumbers = ["Order 1", "Order 2", "Order 3"];
-  const vendorNumbers = ["Vendor 1", "Vendor 2", "Vendor 3"];
-  const weayNumbers = ["1", " 2", " 3"];
   const invoiceNumbers = ["1", " 2", " 3"];
   const styleNumbers = ["1", " 2", " 3"];
   const poNumbers = ["1", " 2", " 3"];
-  const billNumbers = ["1", " 2", " 3"];
 
   return (
     <>
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="PO Number*" />
-            </SelectTrigger>
-            <SelectContent>
-              {companyNames.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <SelectInput
+            name="po number"
+            options={poNumbers}
+            placeholder="PO Number*"
+            id="po number"
+          />
         </div>
         <div className="flex-1">
           <CalendarInput
@@ -95,49 +34,31 @@ export const HeaderSection = (): JSX.Element => {
         </div>
 
         <div className="flex-1">
-         <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Department Number*" />
-            </SelectTrigger>
-            <SelectContent>
-              {companyNames.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name="department number"
+            options={invoiceNumbers}
+            placeholder="Department Number*"
+            id="department number"
+          />
         </div>
         <div className="flex-1">
-         <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Style Number" />
-            </SelectTrigger>
-            <SelectContent>
-              {styleNumbers.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name="style number"
+            options={styleNumbers}
+            placeholder="Style Number*"
+            id="style number"
+          />
         </div>
 
       </div>
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Order Number" />
-            </SelectTrigger>
-            <SelectContent>
-              {invoiceNumbers.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name="order number"
+            options={styleNumbers}
+            placeholder="Order Number*"
+            id="order number"
+          />
         </div>
         <div className="flex-1">
          <CalendarInput
@@ -149,50 +70,32 @@ export const HeaderSection = (): JSX.Element => {
         </div>
 
         <div className="flex-1">
-         <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Process" />
-            </SelectTrigger>
-            <SelectContent>
-              {invoiceNumbers.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name="process"
+            options={styleNumbers}
+            placeholder="Process"
+            id="process"
+          />
         </div>
         <div className="flex-1">
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Component" />
-            </SelectTrigger>
-            <SelectContent>
-              {poNumbers.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name="component"
+            options={styleNumbers}
+            placeholder="Component"
+            id="component"
+          />
         </div>
 
       </div>
 
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-         <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Rate" />
-            </SelectTrigger>
-            <SelectContent>
-              {billNumbers.map((vendor) => (
-                <SelectItem key={vendor} value={vendor}>
-                  {vendor}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name="rate"
+            options={styleNumbers}
+            placeholder="Rate"
+            id="rate"
+          />
         </div>
 
         <div className="flex-1">
@@ -205,71 +108,64 @@ export const HeaderSection = (): JSX.Element => {
         </div>
 
         <div className="flex-1">
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Main Fabric" />
-            </SelectTrigger>
-            <SelectContent>
-              {billNumbers.map((vendor) => (
-                <SelectItem key={vendor} value={vendor}>
-                  {vendor}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name="main fabric"
+            options={styleNumbers}
+            placeholder="Main fabric"
+            id="main fabric"
+          />
         </div>
 
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
-            placeholder="Remark"
+          <TextInput
+            name="remark"
+            placeholder="Remarks"
+            id="remark"
           />
         </div>
       </div>
 
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
+         <TextInput
+            name="description"
             placeholder="Description"
+            id="description"
           />
         </div>
 
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
-            placeholder="Article Number"
+         <TextInput
+            name="article number"
+            placeholder="Article number"
+            id="article number"
           />
         </div>
 
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
+         <TextInput
+            name="color"
             placeholder="Color"
+            id="color"
           />
         </div>
 
         <div className="flex-1">
-         <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Summary Qty." />
-            </SelectTrigger>
-            <SelectContent>
-              {billNumbers.map((vendor) => (
-                <SelectItem key={vendor} value={vendor}>
-                  {vendor}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name="summary quantity"
+            options={styleNumbers}
+            placeholder="Summary Qty."
+            id="summary quantity"
+          />
         </div>
       </div>
 
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
-            placeholder="Payment Term"
+         <TextInput
+            name="payment term"
+            placeholder="Payment term"
+            id="payment term"
           />
         </div>
 

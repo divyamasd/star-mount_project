@@ -1,94 +1,32 @@
-import { CalendarIcon, CheckIcon } from "lucide-react";
 import React, { useRef, useState } from "react";
-import { Input } from "../../../../components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../../../../components/ui/select";
-import { Button } from "../../../../components/ui/button";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { format } from "date-fns";
-
-const CalendarInput = ({
-  selectedDate,
-  setSelectedDate,
-  placeholder,
-  id,
-}: {
-  selectedDate: Date | null;
-  setSelectedDate: (date: Date | null) => void;
-  placeholder: string;
-  id: string;
-}) => {
-  const datePickerRef = useRef<any>(null);
-
-  return (
-    <div className="relative w-full">
-      <input
-        type="text"
-        readOnly
-        value={selectedDate ? format(selectedDate, "PPP") : ""}
-        placeholder={placeholder}
-        className={`h-12 w-full cursor-default rounded-md border border-[#bbbbbb] bg-transparent px-4 py-2 text-base font-medium text-[#505050] placeholder-[#bbbbbb] ${
-          !selectedDate ? "text-[#bbbbbb]" : ""
-        }`}
-        onClick={() => datePickerRef.current.setOpen(true)}
-      />
-      <CalendarIcon
-        className="absolute right-4 top-3.5 h-5 w-5 text-[#505050] cursor-pointer"
-        onClick={() => datePickerRef.current.setOpen(true)}
-      />
-      <DatePicker
-        selected={selectedDate}
-        onChange={(date) => setSelectedDate(date)}
-        ref={datePickerRef}
-        customInput={<></>}
-        id={id}
-        popperPlacement="bottom-start"
-      />
-    </div>
-  );
-};
+import { SelectInput } from "../../../../components/FormInputs/SelectInput";
+import { TextInput } from "../../../../components/FormInputs/TextInput";
+import { CalendarInput } from "../../../../components/FormInputs/CalendarInput";
 
 export const HeaderSection = (): JSX.Element => {
-  const [Date, setDate] = useState<Date | null>(null);
-  const [toBeVerified, setToBeVerified] = useState(false);
-  const [alreadyVerified, setAlreadyVerified] = useState(false);
+  const [recDate, setRecDate] = useState<Date | null>(null);
+  const [deliveryDate, setDeliveryDate] = useState<Date | null>(null);
+  const [consolidateDate, setConsolidateDate] = useState<Date | null>(null);
+  const [challanDate, setChallanDate] = useState<Date | null>(null);
+  const [entryDate, setEntryDate] = useState<Date | null>(null);
   
-  const companyNames = ["Company 1", "Company 2", "Company 3"];
-  const receiverNumbers = ["Order 1", "Order 2", "Order 3"];
-  const vendorNumbers = ["Vendor 1", "Vendor 2", "Vendor 3"];
-  const weayNumbers = ["1", " 2", " 3"];
-  const invoiceNumbers = ["1", " 2", " 3"];
-  const inspectionNumbers = ["1", " 2", " 3"];
-  const gateNumbers = ["1", " 2", " 3"];
-  const billNumbers = ["1", " 2", " 3"];
+  const options = ["1", " 2", " 3"];
 
   return (
     <>
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Rec No.*" />
-            </SelectTrigger>
-            <SelectContent>
-              {companyNames.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <SelectInput
+            name = "rec number"
+            options={options}
+            placeholder = "Rec No.*"
+            id = "rec number"
+          />
         </div>
         <div className="flex-1">
           <CalendarInput
-            selectedDate={Date}
-            setSelectedDate={setDate}
+            selectedDate={recDate}
+            setSelectedDate={setRecDate}
             placeholder="Rec Date"
             id="recDatePicker"
           />
@@ -96,83 +34,53 @@ export const HeaderSection = (): JSX.Element => {
 
         <div className="flex-1">
           
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Department/Vendor*" />
-            </SelectTrigger>
-            <SelectContent>
-              {receiverNumbers.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name = "department/vendor"
+            options={options}
+            placeholder = "Department/Vendor*"
+            id = "department/vendor"
+          />
         </div>
         <div className="flex-1">
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Process" />
-            </SelectTrigger>
-            <SelectContent>
-              {vendorNumbers.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name = "process"
+            options={options}
+            placeholder = "Process"
+            id = "process"
+          />
         </div>
 
       </div>
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="PO No.*" />
-            </SelectTrigger>
-            <SelectContent>
-              {invoiceNumbers.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name = "po number"
+            options={options}
+            placeholder = "PO No.*"
+            id = "po number"
+          />
         </div>
         <div className="flex-1">
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Style Number*" />
-            </SelectTrigger>
-            <SelectContent>
-              {weayNumbers.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name = "style number"
+            options={options}
+            placeholder = "Style No.*"
+            id = "style number"
+          />
         </div>
 
         <div className="flex-1">
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Order Number*" />
-            </SelectTrigger>
-            <SelectContent>
-              {inspectionNumbers.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name = "order number"
+            options={options}
+            placeholder = "Order No.*"
+            id = "order number"
+          />
         </div>
         <div className="flex-1">
           <CalendarInput
-            selectedDate={Date}
-            setSelectedDate={setDate}
+            selectedDate={deliveryDate}
+            setSelectedDate={setDeliveryDate}
             placeholder="Delivery Date"
             id="deliveryDatePicker"
           />
@@ -182,106 +90,92 @@ export const HeaderSection = (): JSX.Element => {
 
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-        <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Time Zone" />
-            </SelectTrigger>
-            <SelectContent>
-              {billNumbers.map((vendor) => (
-                <SelectItem key={vendor} value={vendor}>
-                  {vendor}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+        <SelectInput
+            name = "time zone"
+            options={options}
+            placeholder = "Time Zone"
+            id = "time zone"
+          />
         </div>
 
         <div className="flex-1">
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Component" />
-            </SelectTrigger>
-            <SelectContent>
-              {billNumbers.map((vendor) => (
-                <SelectItem key={vendor} value={vendor}>
-                  {vendor}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name = "component"
+            options={options}
+            placeholder = "Component"
+            id = "component"
+          />
         </div>
 
         <div className="flex-1">
           <CalendarInput
-            selectedDate={Date}
-            setSelectedDate={setDate}
+            selectedDate={consolidateDate}
+            setSelectedDate={setConsolidateDate}
             placeholder="Considate Qty."
             id="considateQtyDatePicker"
           />
         </div>
 
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
+         <TextInput
+            name="country"
             placeholder="Country"
+            id="country"
           />
         </div>
       </div>
 
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
-            placeholder="Total Req. Qty"
+         <TextInput
+            name="total rec quantity"
+            placeholder="Total Rec quantity"
+            id="total rec quantity"
           />
         </div>
 
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
-            placeholder="Challan Number"
+         <TextInput
+            name="challan number"
+            placeholder="Challan number"
+            id="challan number"
           />
         </div>
 
         <div className="flex-1">
           <CalendarInput
-            selectedDate={Date}
-            setSelectedDate={setDate}
+            selectedDate={challanDate}
+            setSelectedDate={setChallanDate}
             placeholder="Challan Date"
             id="challanDatePicker"
           />
         </div>
 
         <div className="flex-1">
-         <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Gate no." />
-            </SelectTrigger>
-            <SelectContent>
-              {billNumbers.map((vendor) => (
-                <SelectItem key={vendor} value={vendor}>
-                  {vendor}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+         <SelectInput
+            name = "gate number"
+            options={options}
+            placeholder = "Gate number"
+            id = "gate number"
+          />
         </div>
       </div>
       
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
           <CalendarInput
-            selectedDate={Date}
-            setSelectedDate={setDate}
+            selectedDate={entryDate}
+            setSelectedDate={setEntryDate}
             placeholder="Gate Entry Date"
             id="gateEntryDatePicker"
           />
         </div>
 
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
+          <TextInput
+            name="location"
             placeholder="Location"
+            id="location"
           />
         </div>
 

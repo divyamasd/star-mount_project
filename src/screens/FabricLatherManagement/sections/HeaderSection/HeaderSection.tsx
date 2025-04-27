@@ -1,58 +1,9 @@
-import { CalendarIcon, CheckIcon } from "lucide-react";
-import React, { useRef, useState } from "react";
-import { Input } from "../../../../components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../../../../components/ui/select";
-import { Button } from "../../../../components/ui/button";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { format } from "date-fns";
+import {  CheckIcon } from "lucide-react";
+import React, {  useState } from "react";
+import { SelectInput } from "../../../../components/FormInputs/SelectInput";
+import { CalendarInput } from "../../../../components/FormInputs/CalendarInput";
+import { TextInput } from "../../../../components/FormInputs/TextInput";
 
-const CalendarInput = ({
-  selectedDate,
-  setSelectedDate,
-  placeholder,
-  id,
-}: {
-  selectedDate: Date | null;
-  setSelectedDate: (date: Date | null) => void;
-  placeholder: string;
-  id: string;
-}) => {
-  const datePickerRef = useRef<any>(null);
-
-  return (
-    <div className="relative w-full">
-      <input
-        type="text"
-        readOnly
-        value={selectedDate ? format(selectedDate, "PPP") : ""}
-        placeholder={placeholder}
-        className={`h-12 w-full cursor-default rounded-md border border-[#bbbbbb] bg-transparent px-4 py-2 text-base font-medium text-[#505050] placeholder-[#bbbbbb] ${
-          !selectedDate ? "text-[#bbbbbb]" : ""
-        }`}
-        onClick={() => datePickerRef.current.setOpen(true)}
-      />
-      <CalendarIcon
-        className="absolute right-4 top-3.5 h-5 w-5 text-[#505050] cursor-pointer"
-        onClick={() => datePickerRef.current.setOpen(true)}
-      />
-      <DatePicker
-        selected={selectedDate}
-        onChange={(date) => setSelectedDate(date)}
-        ref={datePickerRef}
-        customInput={<></>}
-        id={id}
-        popperPlacement="bottom-start"
-      />
-    </div>
-  );
-};
 
 export const HeaderSection = (): JSX.Element => {
   const [poDate, setpoDate] = useState<Date | null>(null);
@@ -72,32 +23,20 @@ export const HeaderSection = (): JSX.Element => {
     <>
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Company" />
-            </SelectTrigger>
-            <SelectContent>
-              {companyNumbers.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <SelectInput
+            name = "company"
+            options={companyNumbers}
+            placeholder = "Company"
+            id = "company"
+          />
         </div>
         <div className="flex-1">
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="PO Number" />
-            </SelectTrigger>
-            <SelectContent>
-              {poNumbers.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <SelectInput
+            name = "po number"
+            options={poNumbers}
+            placeholder = "PO number"
+            id = "po number"
+          />
         </div>
 
         <div className="flex-1">
@@ -130,18 +69,12 @@ export const HeaderSection = (): JSX.Element => {
         </div>
 
         <div className="flex-1">
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Country" />
-            </SelectTrigger>
-            <SelectContent>
-              {vendorNumbers.map((vendor) => (
-                <SelectItem key={vendor} value={vendor}>
-                  {vendor}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <SelectInput
+            name = "country"
+            options={companyNumbers}
+            placeholder = "Country"
+            id = "country"
+          />
         </div>
 
         <div className="flex-1">
@@ -154,34 +87,30 @@ export const HeaderSection = (): JSX.Element => {
         </div>
 
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
-            placeholder="Remarks"
+         <TextInput
+            name = "remarks"
+            placeholder = "Remarks"
+            id = "remarks"
           />
         </div>
       </div>
 
       <div className="flex w-full items-center gap-3 px-10 py-3">
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
-            placeholder="Program"
+          <TextInput
+            name = "program"
+            placeholder = "Program"
+            id = "program"
           />
         </div>
 
         <div className="flex-1">
-          <Select>
-            <SelectTrigger className="h-12 w-full border border-[#bbbbbb] bg-transparent">
-              <SelectValue placeholder="Width" />
-            </SelectTrigger>
-            <SelectContent>
-              {widthNumbers.map((order) => (
-                <SelectItem key={order} value={order}>
-                  {order}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <SelectInput
+            name = "width"
+            options={widthNumbers}
+            placeholder = "width"
+            id = "width"
+          />
         </div>
 
         <div className="flex-1">
@@ -194,9 +123,10 @@ export const HeaderSection = (): JSX.Element => {
         </div>
 
         <div className="flex-1">
-          <Input
-            className="h-12 w-full border border-[#bbbbbb] px-4 py-2 font-mulish-14-sp-medium text-base font-medium text-[#505050] placeholder-[#bbbbbb]"
-            placeholder="Mode of Dispatch"
+          <TextInput
+            name = "mode of dispatch"
+            placeholder = "Mode of dispatch"
+            id = "mode of dispatch"
           />
         </div>
       </div>
