@@ -255,6 +255,13 @@ import {
                   <DropdownMenuItem onClick={() => alert("Logout clicked")}>
                     {"Logout"}
                   </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/order-entry">{"Module 1"}</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/barcode-master">{"Module 2"}</Link>
+                  </DropdownMenuItem>
+                  
               </DropdownMenuContent>
             </DropdownMenu>
           </div>

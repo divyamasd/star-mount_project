@@ -1,0 +1,1 @@
+export { BuyerDetails } from "./BuyerDetails";

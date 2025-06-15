@@ -1,0 +1,1 @@
+export { BarcodeMaster } from "./BarcodeMaster";

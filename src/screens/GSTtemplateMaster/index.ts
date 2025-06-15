@@ -1,0 +1,1 @@
+export { GSTtemplateMaster } from "./GSTtemplateMaster";

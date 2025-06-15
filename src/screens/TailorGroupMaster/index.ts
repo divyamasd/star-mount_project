@@ -1,0 +1,1 @@
+export { TailorGroupMaster } from "./TailorGroupMaster";

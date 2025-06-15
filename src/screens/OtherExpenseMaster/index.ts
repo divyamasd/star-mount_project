@@ -1,0 +1,1 @@
+export { OtherExpenseMaster } from "./OtherExpenseMaster";
