@@ -16,124 +16,55 @@ export const PaginationSection = (): JSX.Element => {
   const sampleData = [
     {
       id: 1,
-      trim: "red",
-      brandType: "5cm",
-      subDescription: "665",
-      trimType: "556",
-      trimColour: "red",
-      countryCode: "556",
-      colourCombo: "red",
-      size: "5cm",
-      uom: "67",
+      modeOfDispatch: "By Air"
     },
+    
     {
       id: 2,
-      trim: "white",
-      brandType: "50inch",
-      subDescription: "45",
-      trimType: "34",
-      trimColour: "white",
-      countryCode: "55",
-      colourCombo: "white",
-      size: "50inch",
-      uom: "45",
+      modeOfDispatch: "By Air"
     },
+    
     {
       id: 3,
-      trim: "black",
-      brandType: "4inch",
-      subDescription: "7",
-      trimType: "65",
-      trimColour: "black",
-      countryCode: "34",
-      colourCombo: "black",
-      size: "4inch",
-      uom: "55",
+      modeOfDispatch: "By Air"
     },
+    
     {
       id: 4,
-      trim: "green",
-      brandType: "3mtr",
-      subDescription: "89",
-      trimType: "87",
-      trimColour: "green",
-      countryCode: "667",
-      colourCombo: "green",
-      size: "3mtr",
-      uom: "88",
+      modeOfDispatch: "By Air"
     },
+    
     {
       id: 5,
-      trim: "green",
-      brandType: "45mtr",
-      subDescription: "32",
-      trimType: "54",
-      trimColour: "green",
-      countryCode: "67",
-      colourCombo: "green",
-      size: "45mtr",
-      uom: "22",
+      modeOfDispatch: "By Air"
     },
+    
     {
       id: 6,
-      trim: "black",
-      brandType: "4inch",
-      subDescription: "54",
-      trimType: "32",
-      trimColour: "black",
-      countryCode: "90",
-      colourCombo: "black",
-      size: "4inch",
-      uom: "88",
+      modeOfDispatch: "By Air"
     },
+    
     {
       id: 7,
-      trim: "white",
-      brandType: "4cm",
-      subDescription: "56",
-      trimType: "21",
-      trimColour: "white",
-      countryCode: "33",
-      colourCombo: "white",
-      size: "4cm",
-      uom: "33",
+      modeOfDispatch: "By Air"
     },
+    
     {
       id: 8,
-      trim: "black",
-      brandType: "78inch",
-      subDescription: "67",
-      trimType: "09",
-      trimColour: "black",
-      countryCode: "22",
-      colourCombo: "black",
-      size: "78inch",
-      uom: "56",
+      modeOfDispatch: "By Air"
     },
+    
     {
       id: 9,
-      trim: "green",
-      brandType: "3inch",
-      subDescription: "88",
-      trimType: "56",
-      trimColour: "green",
-      countryCode: "1",
-      colourCombo: "green",
-      size: "3inch",
-      uom: "55",
+      modeOfDispatch: "By Air"
     },
+    
     {
       id: 10,
-      trim: "pink",
-      brandType: "4cm",
-      subDescription: "66",
-      trimType: "45",
-      trimColour: "pink",
-      countryCode: "44",
-      colourCombo: "pink",
-      size: "4cm",
-      uom: "33",
+      modeOfDispatch: "By Air"
     },
+    
+   
   ];
   const [tableData, settableData] = useState(sampleData);
   const [currentPage, setCurrentPage] = useState(1);
@@ -157,32 +88,11 @@ export const PaginationSection = (): JSX.Element => {
                   S.N.
                 </TableCell>
                 <TableCell className="w-[125px] font-mulish-14-sp-medium text-foundationprimary-yellowyellow-900">
-                  Trim
+                  Mode Of Dispatch
                 </TableCell>
-                <TableCell className="w-44 font-mulish-14-sp-medium text-foundationprimary-yellowyellow-900">
-                  Brand Type
-                </TableCell>
-                <TableCell className="w-[187px] font-mulish-14-sp-medium text-foundationprimary-yellowyellow-900">
-                  Sub Description
-                </TableCell>
-                <TableCell className="w-[119px] font-mulish-14-sp-medium text-foundationprimary-yellowyellow-900">
-                  Trim Type
-                </TableCell>
-                <TableCell className="w-[135px] font-mulish-14-sp-medium text-foundationprimary-yellowyellow-900">
-                  Trim Colour
-                </TableCell>
-                <TableCell className="w-[123px] font-mulish-14-sp-medium text-foundationprimary-yellowyellow-900">
-                  Country Code
-                </TableCell>
-                <TableCell className="w-[127px] font-mulish-14-sp-medium text-foundationprimary-yellowyellow-900">
-                  Colour/Combo
-                </TableCell>
-                <TableCell className="w-[127px] font-mulish-14-sp-medium text-foundationprimary-yellowyellow-900">
-                  Size
-                </TableCell>
-                <TableCell className="w-[121px] font-mulish-14-sp-medium text-foundationprimary-yellowyellow-900 text-right pr-4">
-                  UOM
-                </TableCell>
+                
+               
+                
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -204,32 +114,10 @@ export const PaginationSection = (): JSX.Element => {
                     {row.id}
                   </TableCell>
                   <TableCell className="font-mulish-14-sp-medium text-[#6c6c6c]">
-                    {row.trim}
+                    {row.modeOfDispatch}
                   </TableCell>
-                  <TableCell className="font-medium text-[#505050] text-sm">
-                    {row.brandType}
-                  </TableCell>
-                  <TableCell className="font-medium text-[#505050] text-sm">
-                    {row.subDescription}
-                  </TableCell>
-                  <TableCell className="font-mulish-14-sp-semibold text-[#6c6c6c]">
-                    {row.trimType}
-                  </TableCell>
-                  <TableCell className="font-mulish-14-sp-medium text-[#6c6c6c]">
-                    {row.trimColour}
-                  </TableCell>
-                  <TableCell className="font-medium text-[#505050] text-sm">
-                    {row.countryCode}
-                  </TableCell>
-                  <TableCell className="font-mulish-14-sp-medium text-[#6c6c6c]">
-                    {row.colourCombo}
-                  </TableCell>
-                  <TableCell className="font-medium text-[#505050] text-sm">
-                    {row.size}
-                  </TableCell>
-                  <TableCell className="font-mulish-14-sp-semibold text-[#6c6c6c] text-right">
-                    {row.uom}
-                  </TableCell>
+                  
+
                 </TableRow>
               ))}
             </TableBody>

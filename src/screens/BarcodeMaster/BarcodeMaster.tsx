@@ -21,18 +21,11 @@ export const BarcodeMaster = (): JSX.Element => {
           <h1 className="font-semibold text-2xl [font-family:'Mulish',Helvetica]">
             Barcode Master
           </h1>
-          <div className="flex items-center gap-3">
-            <Button className="bg-[#2c97cd] text-white font-semibold text-sm rounded-lg" onClick={() => alert("clicked")}>
-              Import
-            </Button>
-            <Button className="bg-[#2c97cd] text-white font-semibold text-sm rounded-lg" onClick={() => alert("clicked")}>
-              Refresh
-            </Button>
-          </div>
+          
         </div>
 
         <div className="flex flex-col w-full">
-
+          <HeaderSection/>
           <PaginationSection />
 
           <Separator className="mx-10 my-6" />

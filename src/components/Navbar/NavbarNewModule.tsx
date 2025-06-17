@@ -15,6 +15,9 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
+    DropdownMenuSub,
+    DropdownMenuSubTrigger,
+    DropdownMenuSubContent,
   } from "../ui/dropdown-menu";
  import companyLogo from "../../../public/company_logo.png"
 
@@ -33,15 +36,46 @@ import {
       dropdown: true,
       options: [
         { label: "Barode Master", path: "/barcode-master" },
-        { label: "Order Quantity", path: "/order-quantity" },
-        { label: "Order Final Fabric Detail", path: "/order-final-fabric-detail" },
-        { label: "Order Exchange", path: "/order-exchange" },
-        { label: "Order Component", path: "/order-component" },
-        { label: "Fabric Planning", path: "/fabric-planning" },
-        { label: "Fabric Average", path: "/fabric-average" },
-        { label: "Accessory Details", path: "/accessory-details" },
-        { label: "Packing Details", path: "/packing-details" },
-        { label: "Production Plan Details", path: "/production-plan-details" },
+        { label: "Brand", path: "/brand" },
+        { label: "Buyer Control", dropdown:true, 
+            opt: [
+                { label: "Buyer Group", path: "/buyer-group" },
+                { label: "Buyer Details", path: "/buyer-details" },
+            ]
+         },
+        { label: "Colour", path: "/colour" },
+        { label: "Company", path: "/company" },
+        { label: "Country Control", dropdown:true, 
+            opt: [
+                { label: "City Master", path: "/city-master" },
+                { label: "Country Group", path: "/country-group" },
+                { label: "Region Master", path: "/region-master" },
+                { label: "State master", path: "/state-master" },
+                { label: "Country", path: "/country" },
+            ]
+         },
+        { label: "Component", path: "/component" },
+        { label: "Sub Component", path: "/sub-component" },
+        { label: "Currency", path: "/currency" },
+        { label: "Department", path: "/department" },
+        { label: "General Challan Type", path: "/general-challan-type" },
+        { label: "Group", path: "/group" },
+        { label: "Mode of Dispatch", path: "/mode-of-dispatch" },
+        { label: "Person", path: "/person" },
+        { label: "Process Control", dropdown:true,
+            opt: [
+                { label: "Sub Process", path: "/sub-process" },
+                { label: "Process Activity", path: "/process-activity" },
+            ]
+         },
+        { label: "Season Year", path: "/season-year" },
+        { label: "Shipping Address", path: "/shipping-address" },
+        { label: "Time Slot", path: "/time-slot" },
+        { label: "Measure Unit", path: "/measure-unit" },
+        { label: "vendor", path: "/vendor" },
+        { label: "Financial Year", path: "/financial-year" },
+        { label: "Opening Stock", path: "/opening-stock" },
+        { label: "Tailor Group Master", path: "/tailor-group-master" },
       ],
     },
     {
@@ -49,28 +83,45 @@ import {
       label: "Account",
       dropdown: true,
       options: [
-        { label: "Order Authentication", path: "/order-authentication" },
+        { label: "Tax Type", path: "/tax-type" },
+        { label: "Other Expense Master", path: "/other-expense-master" },
+        { label: "Tax Template Master", path: "/tax-template-master" },
+        { label: "GST Template Master", path: "/gst-template-master" },
       ],
     },
     {
       icon: "../../../public/procurement.png",
       label: "Export\nDocumentation",
-      //path: "/"
+      path: "/barcode-master"
     },
     {
       icon: "../../../public/cutting.svg",
       label: "Item\nControl",
-      //path: "/"
+      path: "/barcode-master"
     },
     {
       icon: "../../../public/productionControl.svg" ,
       label: "Order\nModule",
       dropdown: true,
       options: [
-        { label: "Other Process Control", path: "/other-process-control" },
-        { label: "Production Issue", path: "/production-issue" },
-        { label: "Production Received", path: "/production-received" },
-        { label: "Leather Cutting Process", path: "/leather-cutting-process" },
+        { label: "Sampling", path: "/sampling" },
+        { label: "Activity control", dropdown:true,
+            opt: [
+                { label: "Activity Control", path: "/activity-control" },
+                { label: "Activity Master", path: "/activity-master" },
+            ]
+         },
+        { label: "Style Group Master", path: "/style-group-master" },
+        { label: "Group Master", path: "/group-master" },
+        { label: "Sales Order", dropdown: true, 
+            opt: [
+                { label: "Sale Agent", path: "/sale-agent" },
+                { label: "Sale Representative", path: "/sale-representative" },
+            ]
+         },
+        { label: "Time and Action", path: "/time-and-action" },
+        { label: "User Wise E-mail Info", path: "/user-wise-email-info" },
+        { label: "Head Costing Template", path: "/head-costing-template" },
       ],
     },
     {
@@ -107,12 +158,12 @@ import {
       label: "Stock\nControl",
       dropdown: true,
       options: [
-        { label: "Challan Detail", path: "/challan-detail" },
-        { label: "Purchase Order Detail", path: "/purchase-order-detail" },
-        { label: "Other Production Order", path: "/other-production-order" },
-        { label: "Challan Cancellation", path: "/challan-cancellation" },
-        { label: "Master Details", path: "/master-details" },
-        { label: "Fabric Details", path: "/fabric-details" },
+        { label: "Bin Master", path: "/bin-master" },
+        { label: "Indent Master", path: "/indentMaster" },
+        { label: "Grade Master", path: "/grade-master" },
+        { label: "Make Master", path: "/makeMaster" },
+        { label: "Store Master", path: "/store-master" },
+        { label: "Vehicle Master", path: "/vehicle-master" },
       ],
     },
     {
@@ -147,7 +198,7 @@ import {
         </div>
       ),
       label: "Custom\nReport",
-      //path:"/"
+      path:"/barcode-master"
     },
     {
       customIcon: (
@@ -181,7 +232,7 @@ import {
         </div>
       ),
       label: "Reports",
-      //path:"/"
+      path:"/barcode-master"
     },
   ];
   
@@ -244,13 +295,31 @@ import {
                     </div>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-56">
-                    {item.options.map((option, optionIndex) => (
-                      <DropdownMenuItem key={optionIndex}>
-                        <Link to={option.path} className="w-full">
-                          {option.label}
-                        </Link>
-                      </DropdownMenuItem>
-                    ))}
+                  {item.options.map((option, optionIndex) => (
+                        option.dropdown && option.opt ? (
+                            <DropdownMenuSub key={optionIndex}>
+                            <DropdownMenuSubTrigger className="cursor-pointer">
+                                {option.label}
+                            </DropdownMenuSubTrigger>
+                            <DropdownMenuSubContent className="w-56 ml-2">
+                                {option.opt.map((subOption, subIndex) => (
+                                <DropdownMenuItem key={subIndex}>
+                                    <Link to={subOption.path} className="w-full">
+                                    {subOption.label}
+                                    </Link>
+                                </DropdownMenuItem>
+                                ))}
+                            </DropdownMenuSubContent>
+                            </DropdownMenuSub>
+                        ) : (
+                            <DropdownMenuItem key={optionIndex}>
+                            <Link to={option.path} className="w-full">
+                                {option.label}
+                            </Link>
+                            </DropdownMenuItem>
+                        )
+                        ))}
+
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (

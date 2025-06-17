@@ -19,7 +19,7 @@ export const BuyerDetails = (): JSX.Element => {
         {/* Title */}
         <div className="flex justify-between items-center p-10 pb-6">
           <h1 className="font-semibold text-2xl [font-family:'Mulish',Helvetica]">
-            Packing Details
+            Buyer Details
           </h1>
           <div className="flex items-center gap-3">
             <Button className="bg-[#2c97cd] text-white font-semibold text-sm rounded-lg" onClick={() => alert("clicked")}>
