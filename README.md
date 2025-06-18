@@ -27,3 +27,5 @@ If you are satisfied with the result, you can finally build the project for rele
 ```
 npm run build
 ```
+
+The two different modules can be toggled between from the dropdown that appears by clicking on the profile icon
