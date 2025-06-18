@@ -1,0 +1,1 @@
+export { UserWiseEmailInfo } from "./UserWiseEmailInfo";

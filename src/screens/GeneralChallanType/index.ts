@@ -1,0 +1,1 @@
+export { GeneralChallanType } from "./GeneralChallanType";
